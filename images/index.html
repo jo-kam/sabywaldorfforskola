@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Säby Waldorfförskola – förskola i naturreservat, Järfälla</title>
+<meta name="description" content="Säby Waldorfförskola är en förskola för barn 1–7 år i genuin slottsmiljö på Säby gård vid Järvafältets naturreservat, 1 km från Jakobsbergs centrum i Järfälla.">
+<link rel="canonical" href="https://sabywaldorf.vercel.app/">
+<meta name="theme-color" content="#3f3112">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="sv_SE">
+<meta property="og:site_name" content="Säby Waldorfförskola">
+<meta property="og:title" content="Säby Waldorfförskola">
+<meta property="og:description" content="Säby Waldorfförskola är en förskola för barn 1–7 år i genuin slottsmiljö på Säby gård vid Järvafältets naturreservat, 1 km från Jakobsbergs centrum i Järfälla.">
+<meta property="og:url" content="https://sabywaldorf.vercel.app/">
+<meta property="og:image" content="https://sabywaldorf.vercel.app/images/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Preschool","name":"Säby Waldorfförskola","url":"https://sabywaldorf.vercel.app/","telephone":"+46858034020","email":"mona.saby@gmail.com","address":{"@type":"PostalAddress","streetAddress":"Säby Gård","postalCode":"177 38","addressLocality":"Järfälla","addressCountry":"SE"}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & TOKENS ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --br:#3f3112;--brl:#655f34;--amber:#a05913;--orange:#fc7300;
+  --sand:#fdf6ef;--sand2:#fdf3e7;--cream:#fdf5ed;--wh:#fff;
+  --fd:'Abril Fatface',Georgia,serif;
+  --fb:'Playfair Display',Georgia,serif;
+  --r:40px;--rsm:20px;--rb:12px;
+  --max:1488px;--ph:120px; /* page horiz padding */
+}
+html{scroll-behavior:smooth}
+body{background:var(--wh);color:var(--br);font-family:var(--fb);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;object-fit:cover}
+a{color:inherit;text-decoration:none}
+
+/* ── A11Y ── */
+.vh{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:fixed;top:-60px;left:16px;z-index:200;background:var(--br);color:var(--cream);padding:10px 18px;border-radius:var(--rb);font-family:var(--fb);font-size:15px;transition:top .2s}
+.skip:focus{top:12px}
+a:focus-visible,button:focus-visible{outline:2.5px solid var(--br);outline-offset:3px;border-radius:6px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.fu{opacity:1!important;transform:none!important;transition:none!important}.cta-arrow{animation:none!important}}
+
+/* ── FADE IN ── */
+.fu{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.fu.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+/* ══════════════════════════════════
+   NAV
+══════════════════════════════════ */
+nav{
+  position:fixed;inset:0 0 auto;z-index:100;
+  background:rgba(255,255,255,.95);backdrop-filter:blur(12px);
+  padding:18px var(--ph);
+  display:flex;align-items:center;justify-content:flex-end;gap:48px;
+  border-bottom:1px solid transparent;transition:border-color .3s;
+}
+nav.scrolled{border-color:rgba(63,49,18,.12)}
+.nl{display:flex;gap:36px;list-style:none}
+.nl a{font-size:15px;color:var(--br);transition:opacity .2s}
+.nl a:hover{opacity:.5}
+.nlang{display:flex;align-items:center;gap:6px;font-size:15px}
+.nlang-sep{width:1px;height:16px;background:rgba(63,49,18,.2)}
+.nlang-active{color:var(--br)}
+.nlang-dim{color:rgba(63,49,18,.22)}
+.ntog{display:none;background:none;border:none;cursor:pointer;padding:4px;line-height:0}
+
+/* Mobile drawer */
+.drawer{display:none;position:fixed;inset:0;z-index:99;background:#faf7f2;flex-direction:column;padding:90px 32px 48px;gap:28px}
+.drawer.open{display:flex}
+.drawer a{font-family:var(--fb);font-weight:700;font-size:32px;color:var(--br)}
+.dc{position:absolute;top:20px;right:20px;background:none;border:none;cursor:pointer;font-size:30px;color:var(--br);line-height:1}
+
+/* ══════════════════════════════════
+   HERO
+══════════════════════════════════ */
+.hero{
+  min-height:100svh;
+  padding:140px var(--ph) 80px;
+  display:flex;align-items:flex-end;
+  position:relative;overflow:hidden;
+  background:#faf7f2;
+}
+.hero-wc{
+  position:absolute;right:-20px;top:60px;
+  width:55%;max-width:780px;
+  mix-blend-mode:multiply;pointer-events:none;z-index:1;
+}
+.hero-wc img{width:100%;height:auto;object-fit:contain}
+.hero-content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:flex-start;gap:24px;max-width:620px}
+.h-title{
+  font-family:var(--fd);font-weight:400;
+  font-size:clamp(90px,16vw,240px);
+  line-height:.9;color:var(--br);
+}
+.h-sub{
+  font-family:var(--fd);font-weight:400;
+  font-size:clamp(22px,3.5vw,48px);
+  color:var(--amber);letter-spacing:.02em;
+  margin-top:-8px;
+}
+.h-desc{font-size:16px;color:var(--br);line-height:1.5;max-width:340px}
+.h-desc strong{font-weight:900;color:#181307}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--fb);font-size:16px;font-weight:500;
+  color:var(--br);background:var(--cream);border:none;border-radius:var(--rb);
+  padding:16px 24px 16px 28px;cursor:pointer;transition:background .2s,transform .15s;
+  text-decoration:none;white-space:nowrap;
+}
+.btn:hover{background:#f0e6d9;transform:translateY(-1px)}
+.cta-arrow{display:inline-flex;animation:arrowBob 2s ease-in-out infinite}
+@keyframes arrowBob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+.btn:hover .cta-arrow{animation-play-state:paused}
+
+/* wave divider */
+.hero-wave{display:block;width:100%;height:auto;margin-top:-2px}
+
+/* ══════════════════════════════════
+   PAGE WRAPPER
+══════════════════════════════════ */
+.pw{max-width:calc(var(--max) + var(--ph)*2);margin:0 auto;padding:0 var(--ph)}
+.section{padding:96px 0}
+
+/* ══════════════════════════════════
+   ABOUT
+══════════════════════════════════ */
+.about-grid{display:grid;grid-template-columns:1fr 529px;gap:144px;align-items:start}
+.about-h{font-family:var(--fd);font-size:clamp(32px,3.5vw,50px);color:var(--br);margin-bottom:16px;line-height:1.1}
+.about-p{font-size:18px;line-height:1.7;color:#000;margin-bottom:16px}
+.about-p strong,.about-p b{font-weight:900}
+.adm-card{background:var(--sand);border-radius:var(--r);padding:48px;display:flex;flex-direction:column;gap:8px}
+.adm-h{font-family:var(--fd);font-size:35px;color:var(--br);margin-bottom:8px;line-height:1.1}
+.adm-p{font-size:16px;line-height:1.7;color:#000}
+.adm-p a{font-style:italic;font-weight:700;text-decoration:underline}
+
+/* ══════════════════════════════════
+   GALLERY STRIP
+══════════════════════════════════ */
+.gallery-strip-wrap{overflow:hidden;padding:64px 0;margin:0 calc(-1 * var(--ph))}
+.gallery-strip{
+  display:flex;gap:16px;align-items:center;
+  animation:galleryScroll 40s linear infinite;
+  width:max-content;
+}
+.gallery-strip:hover{animation-play-state:paused}
+.gallery-cell{
+  width:282px;height:278px;flex-shrink:0;
+  overflow:hidden;
+  border:1px solid rgba(0,0,0,.05);
+}
+.gallery-cell img{width:100%;height:100%;object-fit:cover;display:block}
+@keyframes galleryScroll{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-50%)}
+}
+
+/* ══════════════════════════════════
+   REVIEWS
+══════════════════════════════════ */
+.rev-h{font-family:var(--fd);font-size:clamp(28px,3.5vw,50px);color:var(--br);margin-bottom:4px}
+.rev-meta{display:flex;align-items:center;gap:8px;font-size:16px;margin-bottom:64px}
+.rev-meta a{font-style:italic}
+.rev-meta a span{text-decoration:underline}
+.rev-dot{width:4px;height:4px;border-radius:50%;background:var(--br)}
+.rev-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.rev-col{display:flex;flex-direction:column;gap:32px}
+.rev-card{border:3px solid var(--sand2);border-radius:var(--r);padding:32px;display:flex;flex-direction:column;gap:32px}
+.rev-hd{display:flex;align-items:center;justify-content:space-between}
+.stars{display:flex;gap:4px}
+.star{width:24px;height:24px;background:#f5b061;border-radius:4px;display:flex;align-items:center;justify-content:center}
+.star svg{width:13px;height:13px;fill:#fff}
+.rev-date{font-size:16px;color:var(--brl)}
+.rev-title{font-size:18px;font-weight:700;line-height:1.5;margin-bottom:4px}
+.rev-body{font-size:16px;line-height:1.7}
+
+/* ══════════════════════════════════
+   RECIPES BANNER
+══════════════════════════════════ */
+.rec-banner{
+  position:relative;border-radius:var(--r);overflow:hidden;
+  min-height:413px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;
+}
+.rec-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.rec-content{position:relative;z-index:2;padding:96px 200px 48px;display:flex;flex-direction:column;align-items:center;gap:32px;max-width:100%}
+.rec-h{font-family:var(--fd);font-size:clamp(40px,5vw,70px);color:var(--br);line-height:1.05}
+.rec-p{font-size:18px;line-height:1.7;color:#000;max-width:660px}
+.btn-orange{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--fb);font-size:16px;font-weight:500;color:#fff;
+  background:var(--orange);border:none;border-radius:var(--rb);
+  padding:16px 28px;cursor:pointer;transition:background .2s,transform .15s;
+  text-decoration:none;
+}
+.btn-orange:hover{background:#e06800;transform:translateY(-1px)}
+.btn-orange svg{width:16px;height:16px;stroke:#fff;stroke-width:1.5;fill:none;flex-shrink:0}
+
+/* ══════════════════════════════════
+   CONTACT + FIND (side by side)
+══════════════════════════════════ */
+.cf-grid{display:grid;grid-template-columns:548px 1fr;gap:96px;align-items:start}
+.cf-h{font-family:var(--fd);font-size:clamp(32px,3.2vw,45px);color:var(--br);margin-bottom:16px;line-height:1.1}
+.cf-sub{font-size:18px;line-height:1.5;color:#000;max-width:434px;margin-bottom:32px}
+.cf-btns{display:flex;gap:16px;flex-wrap:wrap}
+.cf-btn{
+  display:flex;align-items:center;gap:16px;
+  background:var(--sand);border-radius:17px;
+  padding:16px 28px;font-family:var(--fb);font-size:18px;font-weight:500;
+  color:var(--br);transition:background .2s;text-decoration:none;
+}
+.cf-btn:hover{background:#f0e6d9}
+.cf-btn svg{width:18px;height:18px;stroke:var(--br);stroke-width:1.5;fill:none;flex-shrink:0}
+
+/* map card */
+.map-card{
+  position:relative;border-radius:var(--r);overflow:hidden;
+  height:296px;display:flex;align-items:flex-end;
+}
+.map-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.map-overlay{
+  position:relative;z-index:1;
+  padding:32px;
+  background:linear-gradient(to right, rgba(255,255,255,.85) 5%, rgba(255,255,255,0) 70%);
+  width:448px;height:100%;
+  display:flex;flex-direction:column;justify-content:flex-end;gap:24px;
+}
+.map-h{font-family:var(--fd);font-size:45px;color:var(--br);white-space:nowrap;line-height:1}
+.map-p{font-size:16px;line-height:1.5;color:#000}
+.map-p strong{font-weight:700}.map-p b{font-weight:900}
+.map-addr{display:flex;align-items:center;gap:12px;font-size:16px;font-weight:600;text-decoration:underline;color:#000}
+.map-addr svg{width:18px;height:18px;stroke:var(--br);stroke-width:1.5;fill:none;flex-shrink:0}
+
+/* ══════════════════════════════════
+   FOOTER
+══════════════════════════════════ */
+footer{
+  max-width:calc(var(--max) + var(--ph)*2);margin:0 auto 32px;
+  padding:0 var(--ph);
+}
+.footer-inner{
+  background:var(--sand);border-radius:var(--rsm);
+  padding:0 32px;height:91px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  font-size:15px;color:#000;flex-wrap:wrap;
+}
+.ft-copy{white-space:nowrap}
+.ft-addr{white-space:nowrap}
+.ft-contact{display:flex;align-items:center;gap:8px;white-space:nowrap}
+.ft-contact a{color:var(--br);font-weight:500}
+.ft-contact a.ul{text-decoration:underline}
+.ft-ig{display:flex;align-items:center;gap:6px;white-space:nowrap}
+.ft-ig svg{width:15px;height:15px;stroke:var(--br);stroke-width:1.5;fill:none}
+
+/* ══════════════════════════════════
+   TABLET  600–1023px
+══════════════════════════════════ */
+@media(min-width:600px) and (max-width:1023px){
+  :root{--ph:32px}
+  nav{padding:18px var(--ph);justify-content:space-between}
+  .nl,.nlang{display:none}
+  .ntog{display:flex}
+
+  .hero{padding:120px var(--ph) 64px;min-height:100svh}
+  .hero-wc{width:70%;right:-16px;top:110px}
+  .h-title{font-size:clamp(80px,18vw,145px)}
+
+  .section{padding:64px 0}
+
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .adm-card{padding:32px}
+  .adm-h{font-size:28px}
+
+  .rev-grid{grid-template-columns:1fr}
+
+  .rec-content{padding:64px 48px 48px}
+
+  .cf-grid{grid-template-columns:1fr;gap:48px}
+  .map-card{height:280px}
+
+  footer{padding:0 var(--ph)}
+  .footer-inner{height:auto;padding:20px 24px;gap:12px;flex-wrap:wrap;justify-content:flex-start}
+}
+
+/* ══════════════════════════════════
+   MOBILE  ≤599px
+══════════════════════════════════ */
+@media(max-width:599px){
+  :root{--ph:16px}
+  nav{padding:14px var(--ph);justify-content:space-between}
+  .nl,.nlang{display:none}
+  .ntog{display:flex}
+
+  .hero{padding:80px var(--ph) 40px;min-height:100svh;align-items:flex-end}
+  .hero-wc{width:130%;right:50%;transform:translateX(50%);top:60px;opacity:.7}
+  .h-title{font-size:clamp(72px,22vw,120px)}
+  .h-sub{font-size:clamp(20px,6vw,32px)}
+  .h-desc{max-width:100%}
+
+  .section{padding:48px 0}
+  .about-grid{grid-template-columns:1fr;gap:32px}
+  .adm-card{padding:24px;border-radius:var(--rsm)}
+  .adm-h{font-size:24px}
+
+  .gallery-cell{width:200px;height:196px}
+
+  .rev-grid{grid-template-columns:1fr}
+  .rev-card{padding:24px;border-radius:var(--rsm)}
+
+  .rec-content{padding:48px 24px 40px}
+  .rec-h{font-size:clamp(32px,10vw,50px)}
+  .rec-p{font-size:16px}
+
+  .cf-grid{grid-template-columns:1fr;gap:40px}
+  .cf-btns{flex-direction:column}
+  .cf-btn{justify-content:center}
+  .map-card{height:240px}
+  .map-overlay{width:100%;background:linear-gradient(to top, rgba(255,255,255,.9) 40%, rgba(255,255,255,0))}
+  .map-h{font-size:32px}
+
+  footer{padding:0 var(--ph)}
+  .footer-inner{height:auto;padding:20px;gap:10px;flex-wrap:wrap;justify-content:flex-start;border-radius:var(--rsm)}
+  .ft-addr{display:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Till innehållet</a>
+
+<!-- ── NAV ── -->
+<nav id="nav" aria-label="Huvudmeny">
+  <ul class="nl">
+    <li><a href="#hem"  onclick="smoothNav(event,'hem')">Hem</a></li>
+    <li><a href="#om"   onclick="smoothNav(event,'om')">Om oss</a></li>
+    <li><a href="#rev"  onclick="smoothNav(event,'rev')">Omdömen</a></li>
+    <li><a href="#kon"  onclick="smoothNav(event,'kon')">Kontakt</a></li>
+    <li><a href="#find" onclick="smoothNav(event,'find')">Hitta hit</a></li>
+    <li><a href="#rec"  onclick="smoothNav(event,'rec')">Recept</a></li>
+  </ul>
+  <div class="nlang">
+    <span class="nlang-active">SV</span>
+    <div class="nlang-sep"></div>
+    <span class="nlang-dim">EN</span>
+  </div>
+  <button type="button" class="ntog" id="ntog" aria-label="Öppna meny" aria-controls="drawer" aria-expanded="false">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3f3112" stroke-width="1.5">
+      <line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/>
+    </svg>
+  </button>
+</nav>
+
+<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Meny" aria-hidden="true">
+  <button type="button" class="dc" id="dc" aria-label="Stäng meny">×</button>
+  <a href="#hem"  onclick="cd();smoothNav(event,'hem')">Hem</a>
+  <a href="#om"   onclick="cd();smoothNav(event,'om')">Om oss</a>
+  <a href="#rev"  onclick="cd();smoothNav(event,'rev')">Omdömen</a>
+  <a href="#kon"  onclick="cd();smoothNav(event,'kon')">Kontakt</a>
+  <a href="#find" onclick="cd();smoothNav(event,'find')">Hitta hit</a>
+  <a href="#rec"  onclick="cd();smoothNav(event,'rec')">Recept</a>
+</div>
+
+<main id="main">
+
+<!-- ── HERO ── -->
+<section class="hero" id="hem">
+  <div class="hero-wc" aria-hidden="true">
+    <img src="images/hero-watercolor.webp" alt="" width="1670" height="1032" loading="eager" fetchpriority="high" decoding="async">
+  </div>
+  <div class="hero-content">
+    <h1 class="h-title fu">Säby</h1>
+    <p class="h-sub fu d1" aria-label="Waldorfförskola">Waldorfförskola</p>
+    <p class="h-desc fu d2">En förskola i unik miljö vid Järvafältets naturreservat, huserad i <strong>genuin slottsmiljö</strong> på Säby gård.</p>
+    <button type="button" onclick="scrollToAbout()" class="btn fu d3">
+      Läs mer
+      <span class="cta-arrow" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v10M3.5 9l4.5 4.5L12.5 9"/></svg>
+      </span>
+    </button>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="om" class="pw section">
+  <div class="about-grid">
+    <!-- Left: text -->
+    <div>
+      <h2 class="about-h fu">Där barndomen får ta sin tid</h2>
+      <p class="about-p fu d1">På vår förskola erbjuder vi en lugn och trygg miljö där varje barn får utvecklas i sin egen takt. Vi arbetar utifrån Waldorfpedagogiken, där <strong>lek, rytm och kreativt skapande</strong> står i centrum. Genom sagor, sång, rörelse och naturupplevelser stärker vi barnens fantasi, nyfikenhet och lust att lära.</p>
+      <p class="about-p fu d2">Vardagen följer en tydlig rytm som ger trygghet och igenkänning. Vi är mycket ute i naturen, oavsett årstid, och låter barnen uppleva årstidernas växlingar på nära håll. Materialen vi använder är <strong>enkla och naturliga</strong>, vilket ger utrymme för fantasi och egen lek.</p>
+      <p class="about-p fu d2">Vi värnar om ett nära samarbete med familjerna och ser varje barn som en unik individ.</p>
+    </div>
+    <!-- Right: admissions card -->
+    <div class="adm-card fu d1">
+      <h3 class="adm-h">Så får ditt barn en plats</h3>
+      <p class="adm-p">Förskolan ingår i den kommunala barnomsorgsplanen och drivs av stiftelsen Säby Waldorfförskola. Verksamheten är öppen för barn mellan 1 och 7 år, och antagning sker via kommunens och förskolans kö.</p>
+      <p class="adm-p">Du kan läsa mer och ansöka om plats via Järfälla kommuns sida för <a href="https://e-tjanster.jarfalla.se/oversikt/overview/742#Ansokomforskoleplats" target="_blank" rel="noopener noreferrer">ansökan till förskola och pedagogisk omsorg</a> →</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── GALLERY STRIP ── -->
+<div class="gallery-strip-wrap" aria-hidden="true">
+  <div class="gallery-strip" id="galleryStrip">
+    <!-- original 12 images duplicated for infinite scroll -->
+    <div class="gallery-cell"><img src="images/gallery-7.webp"  alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-1.webp"  alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-8.webp"  alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-2.webp"  alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-9.webp"  alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-3.webp"  alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-10.webp" alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-4.webp"  alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-11.webp" alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-5.webp"  alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-12.webp" alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-6.webp"  alt="" loading="lazy" decoding="async"></div>
+    <!-- duplicate for seamless loop -->
+    <div class="gallery-cell"><img src="images/gallery-7.webp"  alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-1.webp"  alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-8.webp"  alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-2.webp"  alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-9.webp"  alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-3.webp"  alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-10.webp" alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-4.webp"  alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-11.webp" alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-5.webp"  alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-12.webp" alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-6.webp"  alt="" loading="lazy" decoding="async"></div>
+  </div>
+</div>
+
+<!-- ── REVIEWS ── -->
+<section id="rev" class="pw section">
+  <h2 class="rev-h fu">Med värme från våra familjer</h2>
+  <div class="rev-meta fu d1">
+    <span>Berättelser om omsorg, växande och glädje</span>
+    <div class="rev-dot"></div>
+    <a href="https://www.schoolparrot.se/schools/saeby-waldorffoerskolan-3864" target="_blank" rel="noopener noreferrer" style="font-style:italic">Läs omdömen på <span style="text-decoration:underline">SchoolParrot</span></a>
+  </div>
+  <div class="rev-grid">
+    <!-- Col 1: two stacked cards -->
+    <div class="rev-col">
+      <div class="rev-card fu">
+        <div class="rev-hd">
+          <div class="stars" role="img" aria-label="5 av 5 stjärnor">
+            <div class="star"><svg viewBox="0 0 13 13"><path d="M6.5 1l1.6 3.3L12 5.1l-2.8 2.7.7 3.8-3.4-1.8-3.4 1.8.7-3.8L1 5.1l3.9-.8z"/></svg></div>
+            <div class="star"><svg viewBox="0 0 13 13"><path d="M6.5 1l1.6 3.3L12 5.1l-2.8 2.7.7 3.8-3.4-1.8-3.4 1.8.7-3.8L1 5.1l3.9-.8z"/></svg></div>
+            <div class="star"><svg viewBox="0 0 13 13"><path d="M6.5 1l1.6 3.3L12 5.1l-2.8 2.7.7 3.8-3.4-1.8-3.4 1.8.7-3.8L1 5.1l3.9-.8z"/></svg></div>
+            <div class="star"><svg viewBox="0 0 13 13"><path d="M6.5 1l1.6 3.3L12 5.1l-2.8 2.7.7 3.8-3.4-1.8-3.4 1.8.7-3.8L1 5.1l3.9-.8z"/></svg></div>
+            <div class="star"><svg viewBox="0 0 13 13"><path d="M6.5 1l1.6 3.3L12 5.1l-2.8 2.7.7 3.8-3.4-1.8-3.4 1.8.7-3.8L1 5.1l3.9-.8z"/></svg></div>
+          </div>
+          <span class="rev-date">9 jan 2024</span>
+        </div>
+        <div>
+          <p class="rev-title">Kan inte tänka mig en bättre förskola</p>
+          <p class="rev-body">Förskolan ligger i ett naturreservat, bredvid ett stort stall, runtom förskolan finns det bara natur. Personalen är underbar, dom flesta har gått eller haft sina barn på förskolan. Jag är verkligen nöjd och glad att mitt barn går på den här förskolan. Rekommenderar den verkligen.</p>
+        </div>
+      </div>
+      <div class="rev-card fu d1">
+        <div class="rev-hd">
+          <div class="stars" role="img" aria-label="5 av 5 stjärnor">
+            <div class="star"><svg viewBox="0 0 13 13"><path d="M6.5 1l1.6 3.3L12 5.1l-2.8 2.7.7 3.8-3.4-1.8-3.4 1.8.7-3.8L1 5.1l3.9-.8z"/></svg></div>
+            <div class="star"><svg viewBox="0 0 13 13"><path d="M6.5 1l1.6 3.3L12 5.1l-2.8 2.7.7 3.8-3.4-1.8-3.4 1.8.7-3.8L1 5.1l3.9-.8z"/></svg></div>
+            <div class="star"><svg viewBox="0 0 13 13"><path d="M6.5 1l1.6 3.3L12 5.1l-2.8 2.7.7 3.8-3.4-1.8-3.4 1.8.7-3.8L1 5.1l3.9-.8z"/></svg></div>
+            <div class="star"><svg viewBox="0 0 13 13"><path d="M6.5 1l1.6 3.3L12 5.1l-2.8 2.7.7 3.8-3.4-1.8-3.4 1.8.7-3.8L1 5.1l3.9-.8z"/></svg></div>
+            <div class="star"><svg viewBox="0 0 13 13"><path d="M6.5 1l1.6 3.3L12 5.1l-2.8 2.7.7 3.8-3.4-1.8-3.4 1.8.7-3.8L1 5.1l3.9-.8z"/></svg></div>
+          </div>
+          <span class="rev-date">15 maj 2023</span>
+        </div>
+        <div>
+          <p class="rev-title">Nöjd familj</p>
+          <p class="rev-body">Så nöjd med den här förskolan, fin personal, otroligt naturområde där förskolan ligger, dom har eigen kock med vegetarisk kost gjord från grunden. Är så nöjd!</p>
+        </div>
+      </div>
+    </div>
+    <!-- Col 2: tall single card -->
+    <div class="rev-card fu d2">
+      <div class="rev-hd">
+        <div class="stars" role="img" aria-label="5 av 5 stjärnor">
+          <div class="star"><svg viewBox="0 0 13 13"><path d="M6.5 1l1.6 3.3L12 5.1l-2.8 2.7.7 3.8-3.4-1.8-3.4 1.8.7-3.8L1 5.1l3.9-.8z"/></svg></div>
+          <div class="star"><svg viewBox="0 0 13 13"><path d="M6.5 1l1.6 3.3L12 5.1l-2.8 2.7.7 3.8-3.4-1.8-3.4 1.8.7-3.8L1 5.1l3.9-.8z"/></svg></div>
+          <div class="star"><svg viewBox="0 0 13 13"><path d="M6.5 1l1.6 3.3L12 5.1l-2.8 2.7.7 3.8-3.4-1.8-3.4 1.8.7-3.8L1 5.1l3.9-.8z"/></svg></div>
+          <div class="star"><svg viewBox="0 0 13 13"><path d="M6.5 1l1.6 3.3L12 5.1l-2.8 2.7.7 3.8-3.4-1.8-3.4 1.8.7-3.8L1 5.1l3.9-.8z"/></svg></div>
+          <div class="star"><svg viewBox="0 0 13 13"><path d="M6.5 1l1.6 3.3L12 5.1l-2.8 2.7.7 3.8-3.4-1.8-3.4 1.8.7-3.8L1 5.1l3.9-.8z"/></svg></div>
+        </div>
+        <span class="rev-date">18 sep 2019</span>
+      </div>
+      <div>
+        <p class="rev-title">Barnet alltid i fokus</p>
+        <p class="rev-body">En bättre start i livet finns inte. Förskolan erbjuder förutom ett livslångt lärande även trygghet, lugn och harmoni. Miljöerna är anpassade efter barns utveckling och ålder, skapar en lugn atmosfär och låter kreativiteten hos barnen flöda.<br><br>Pedagogerna är ömma, rättvisa och professionella. Barnet står alltid i fokus. Trygghet är A och O. Inga okända vikarier och små barngrupper.<br><br>Giftfri förskola. Vegetarisk och ekologisk mat. Egen kock som lagar mat i världsklass.<br><br>Blir förundrad över hur mycket mitt barn lär sig. Säby Waldorfförskola ger barnet en bred kunskap. Fin- och grovmotorik, språk, matematik, naturvetenskap m.m.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── RECIPES BANNER ── -->
+<div class="pw section" id="rec" style="padding-top:0">
+  <div class="rec-banner fu">
+    <img class="rec-bg" src="images/recipes-bg.webp" alt="" loading="lazy" decoding="async">
+    <div class="rec-content">
+      <div>
+        <h2 class="rec-h">Från köket på Säby</h2>
+        <p class="rec-p">Varje vecka lagar vi mat från grunden, ekologiskt, vegetariskt och med kärlek. Ta hem lite av Säby-känslan till ditt eget kök.</p>
+      </div>
+      <a href="recepthafte.pdf" download class="btn-orange">
+        Ladda ner recepthäftet
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9M4 8l4 4 4-4M2 14h12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ── CONTACT + FIND ── -->
+<div class="pw section" id="kon" style="padding-bottom:200px">
+  <div class="cf-grid">
+    <!-- Contact left -->
+    <div class="fu">
+      <h2 class="cf-h">Är ni intresserade av ett besök eller en visning?</h2>
+      <p class="cf-sub">Kontakta oss gärna så berättar vi mer, vi svarar <strong>mellan kl.&nbsp;08.00–14.00</strong></p>
+      <div class="cf-btns">
+        <a href="tel:+46858034020" class="cf-btn">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M14.5 11.2l-3-1.3a1 1 0 00-1.1.3L9 11.6A10 10 0 014.4 7L5.8 5.6a1 1 0 00.3-1.1L4.8 1.5A1 1 0 003.9 1H2a1 1 0 00-1 1.1C1.4 9.2 6.8 14.6 14 15a1 1 0 001-1V12.2a1 1 0 00-.5-.9z" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          08-580 340 20
+        </a>
+        <a href="mailto:mona.saby@gmail.com" class="cf-btn">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1" y="3" width="14" height="10" rx="2" fill="none"/><path d="M1 5l7 5 7-5" fill="none"/></svg>
+          mona.saby@gmail.com
+        </a>
+      </div>
+    </div>
+    <!-- Map right -->
+    <div class="map-card fu d1" id="find">
+      <img src="images/map.webp" alt="Karta som visar Säby gård i Järfälla" loading="lazy" decoding="async">
+      <div class="map-overlay">
+        <div>
+          <h2 class="map-h">Hitta hit</h2>
+          <p class="map-p">Säby Waldorfförskola är belägen på Säby gård, vid <strong>Säbysjön</strong> <b>i naturreservatet</b>, en av Järfällas vackraste adresser, i naturskön miljö på Järvafältet, endast 1 km från Jakobsbergs centrum.</p>
+        </div>
+        <a href="https://www.google.com/maps/search/?api=1&query=Säby+Gård,+177+38+Järfälla" target="_blank" rel="noopener noreferrer" class="map-addr">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1C6 1 4 2.8 4 5c0 3.2 4 9 4 9s4-5.8 4-9c0-2.2-1.8-4-4-4zm0 5.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3z" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Säby Gård, 177 38 Järfälla
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <span class="ft-copy">© Säby Waldorfförskolan</span>
+    <span class="ft-addr">Säby Gård | 177 38 Järfälla</span>
+    <div class="ft-contact">
+      <a href="tel:+46858034020">Tfn. 08-580 340 20</a>
+      <span style="color:rgba(0,0,0,.3)">|</span>
+      <a href="mailto:mona.saby@gmail.com" class="ul">mona.saby@gmail.com</a>
+    </div>
+    <a class="ft-ig" href="https://www.instagram.com/sabywaldorfforskola/" target="_blank" rel="noopener noreferrer" aria-label="Följ Säby Waldorfförskola på Instagram">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="1.5" width="13" height="13" rx="3.5"/><circle cx="8" cy="8" r="3"/><circle cx="11.5" cy="4.5" r=".8" fill="currentColor"/></svg>
+      <span>Följ oss på Instagram</span>
+    </a>
+  </div>
+</footer>
+
+<script>
+/* ---- Drawer ---- */
+const nav    = document.getElementById('nav');
+const drawer = document.getElementById('drawer');
+const ntog   = document.getElementById('ntog');
+const dc     = document.getElementById('dc');
+const RM     = window.matchMedia('(prefers-reduced-motion: reduce)');
+function cd(){ drawer.classList.remove('open'); drawer.setAttribute('aria-hidden','true'); ntog.setAttribute('aria-expanded','false'); document.body.style.overflow=''; ntog.focus(); }
+function openDrawer(){ drawer.classList.add('open'); drawer.setAttribute('aria-hidden','false'); ntog.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; const f=drawer.querySelector('a'); if(f)f.focus(); }
+ntog.addEventListener('click', openDrawer);
+dc.addEventListener('click', cd);
+document.addEventListener('keydown', e=>{ if(e.key==='Escape' && drawer.classList.contains('open')) cd(); });
+
+/* ---- Nav border on scroll ---- */
+window.addEventListener('scroll', ()=>nav.classList.toggle('scrolled', window.scrollY>40), {passive:true});
+
+/* ---- Scroll fade-in ---- */
+const io = new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+}, {threshold:0.08});
+document.querySelectorAll('.fu').forEach(el=>io.observe(el));
+setTimeout(()=>document.querySelectorAll('.hero .fu').forEach(el=>el.classList.add('in')), 80);
+
+/* ---- Smooth scroll ---- */
+function easeOutBack(t){ const c1=1.15,c3=c1+1; return 1+c3*Math.pow(t-1,3)+c1*Math.pow(t-1,2); }
+function animateScroll(end){ if(RM.matches){window.scrollTo(0,end);return;} const start=window.scrollY,dist=end-start,dur=450;let t0=null; function step(ts){if(!t0)t0=ts;const p=Math.min((ts-t0)/dur,1);window.scrollTo(0,start+dist*easeOutBack(p));if(p<1)requestAnimationFrame(step);} requestAnimationFrame(step); }
+function scrollToAbout(){ const t=document.getElementById('om');if(!t)return; animateScroll(t.getBoundingClientRect().top+window.scrollY-80); }
+function smoothNav(e,id){ e.preventDefault(); const t=document.getElementById(id);if(!t)return; animateScroll(t.getBoundingClientRect().top+window.scrollY-nav.offsetHeight-8); }
+</script>
+</body>
+</html>
