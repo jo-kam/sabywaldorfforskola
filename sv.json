@@ -1,0 +1,56 @@
+{
+  "nav": {
+    "hem": "Hem",
+    "om": "Om oss",
+    "rev": "Omdömen",
+    "rec": "Recept",
+    "kon": "Kontakt"
+  },
+  "hero": {
+    "subtitle": "Waldorfförskola",
+    "desc": "En förskola i unik miljö vid Järvafältets naturreservat, huserad i genuin slottsmiljö på Säby gård.",
+    "cta": "Läs mer"
+  },
+  "about": {
+    "heading": "Där barndomen får ta sin tid",
+    "p1": "På vår förskola erbjuder vi en lugn och trygg miljö där varje barn får utvecklas i sin egen takt. Vi arbetar utifrån Waldorfpedagogiken, där lek, rytm och kreativt skapande står i centrum. Genom sagor, sång, rörelse och naturupplevelser stärker vi barnens fantasi, nyfikenhet och lust att lära.",
+    "p2": "Vardagen följer en tydlig rytm som ger trygghet och igenkänning. Vi är mycket ute i naturen, oavsett årstid, och låter barnen uppleva årstidernas växlingar på nära håll. Materialen vi använder är enkla och naturliga, vilket ger utrymme för fantasi och egen lek.",
+    "p3": "Vi värnar om ett nära samarbete med familjerna och ser varje barn som en unik individ.",
+    "adm_heading": "Så får ditt barn en plats",
+    "adm_p1": "Förskolan ingår i den kommunala barnomsorgsplanen och drivs av stiftelsen Säby Waldorfförskola. Verksamheten är öppen för barn mellan 1 och 7 år, och antagning sker via kommunens och förskolans kö.",
+    "adm_p2": "Du kan läsa mer och ansöka om plats via Järfälla kommuns sida för",
+    "adm_link": "ansökan till förskola och pedagogisk omsorg",
+    "adm_arrow": "→"
+  },
+  "reviews": {
+    "heading": "Med värme från våra familjer",
+    "sub": "Berättelser om omsorg, växande och glädje",
+    "schoolparrot": "Läs omdömen på",
+    "r1_date": "9 jan 2024",
+    "r1_title": "Kan inte tänka mig en bättre förskola",
+    "r1_body": "Förskolan ligger i ett naturreservat, bredvid ett stort stall, runtom förskolan finns det bara natur. Personalen är underbar, dom flesta har gått eller haft sina barn på förskolan. Jag är verkligen nöjd och glad att mitt barn går på den här förskolan. Rekommenderar den verkligen.",
+    "r2_date": "15 maj 2023",
+    "r2_title": "Nöjd familj",
+    "r2_body": "Så nöjd med den här förskolan, fin personal, otroligt naturområde där förskolan ligger, dom har eigen kock med vegetarisk kost gjord från grunden. Är så nöjd!",
+    "r3_date": "18 sep 2019",
+    "r3_title": "Barnet alltid i fokus",
+    "r3_body": "En bättre start i livet finns inte. Förskolan erbjuder förutom ett livslångt lärande även trygghet, lugn och harmoni. Miljöerna är anpassade efter barns utveckling och ålder, skapar en lugn atmosfär och låter kreativiteten hos barnen flöda.<br><br>Pedagogerna är ömma, rättvisa och professionella. Barnet står alltid i fokus. Trygghet är A och O. Inga okända vikarier och små barngrupper.<br><br>Giftfri förskola. Vegetarisk och ekologisk mat. Egen kock som lagar mat i världsklass.<br><br>Blir förundrad över hur mycket mitt barn lär sig. Säby Waldorfförskola ger barnet en bred kunskap. Fin- och grovmotorik, språk, matematik, naturvetenskap m.m."
+  },
+  "recipes": {
+    "heading": "Från köket på Säby",
+    "body": "Varje vecka lagar vi mat från grunden, ekologiskt, vegetariskt och med kärlek. Ta hem lite av Säby-känslan till ditt eget kök.",
+    "cta": "Ladda ner recepthäftet"
+  },
+  "contact": {
+    "heading": "Välkommen att besöka oss",
+    "body": "Kontakta oss gärna så berättar vi mer, vi svarar mellan kl.\u00a008.00–14.00"
+  },
+  "map": {
+    "heading": "Hitta hit",
+    "body": "Säby Waldorfförskola är belägen på Säby gård, vid Säbysjön i naturreservatet, i naturskön miljö på Järvafältet, endast 1 km från Jakobsbergs centrum.",
+    "addr": "Säby Gård, 177 38 Järfälla"
+  },
+  "footer": {
+    "ig": "Följ oss på Instagram"
+  }
+}

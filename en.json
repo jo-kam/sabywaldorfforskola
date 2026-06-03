@@ -1,0 +1,56 @@
+{
+  "nav": {
+    "hem": "Home",
+    "om": "About us",
+    "rev": "Reviews",
+    "rec": "Recipes",
+    "kon": "Contact"
+  },
+  "hero": {
+    "subtitle": "Waldorf Preschool",
+    "desc": "A preschool in a unique setting within the Järvafältet nature reserve, housed in the genuine manor environment of Säby Gård.",
+    "cta": "Read more"
+  },
+  "about": {
+    "heading": "Where childhood takes its time",
+    "p1": "At our preschool we offer a calm and safe environment where every child can develop at their own pace. We work according to Waldorf pedagogy, where play, rhythm and creative expression are at the heart of everything we do. Through stories, song, movement and experiences in nature, we nurture each child's imagination, curiosity and joy of learning.",
+    "p2": "Each day follows a clear and predictable rhythm that brings security and familiarity. We spend a great deal of time outdoors in all seasons, letting children experience the changing of the seasons up close. The materials we use are simple and natural, leaving plenty of room for imagination and free play.",
+    "p3": "We value close collaboration with families and see every child as a unique individual.",
+    "adm_heading": "How to enrol your child",
+    "adm_p1": "The preschool is part of the municipal childcare plan and is run by the Säby Waldorf Preschool Foundation. We accept children between the ages of 1 and 7, and admission is handled through the municipality's and the preschool's waiting list.",
+    "adm_p2": "You can read more and apply for a place via Järfälla municipality's page for",
+    "adm_link": "applications for preschool and pedagogical care",
+    "adm_arrow": "→"
+  },
+  "reviews": {
+    "heading": "Warmth from our families",
+    "sub": "Stories of care, growth and joy",
+    "schoolparrot": "Read reviews on",
+    "r1_date": "9 Jan 2024",
+    "r1_title": "Can't imagine a better preschool",
+    "r1_body": "The preschool is situated in a nature reserve, next to a large stable, surrounded entirely by nature. The staff are wonderful — most of them attended or have had their own children at the preschool. I am truly happy and grateful that my child goes here. I wholeheartedly recommend it.",
+    "r2_date": "15 May 2023",
+    "r2_title": "A very happy family",
+    "r2_body": "So pleased with this preschool — wonderful staff, an incredible natural setting, and they even have their own chef serving freshly made vegetarian food. Couldn't be happier!",
+    "r3_date": "18 Sep 2019",
+    "r3_title": "The child always comes first",
+    "r3_body": "There is no better start in life. The preschool offers not only lifelong learning but also security, calm and harmony. The environments are adapted to children's development and age, creating a peaceful atmosphere that lets creativity flourish.<br><br>The teachers are warm, fair and professional. The child is always at the centre. Safety is everything — no unknown substitute teachers and small group sizes.<br><br>Toxin-free preschool. Vegetarian and organic food. Their own chef cooking world-class meals.<br><br>I am constantly amazed by how much my child is learning. Säby Waldorf Preschool gives children a broad foundation — fine and gross motor skills, language, mathematics, natural sciences and much more."
+  },
+  "recipes": {
+    "heading": "From the kitchen at Säby",
+    "body": "Every week we cook from scratch — organic, vegetarian and made with love. Bring a little of the Säby feeling into your own kitchen.",
+    "cta": "Download the recipe booklet"
+  },
+  "contact": {
+    "heading": "You are welcome to visit us",
+    "body": "Get in touch and we'll tell you more. We are available between 08.00–14.00."
+  },
+  "map": {
+    "heading": "Find us",
+    "body": "Säby Waldorf Preschool is located at Säby Gård, by Lake Säbysjön in the nature reserve, in the beautiful surroundings of Järvafältet, just 1 km from Jakobsberg town centre.",
+    "addr": "Säby Gård, 177 38 Järfälla"
+  },
+  "footer": {
+    "ig": "Follow us on Instagram"
+  }
+}

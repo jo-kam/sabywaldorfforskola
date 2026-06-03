@@ -69,8 +69,9 @@ nav.scrolled{border-color:rgba(63,49,18,.12)}
 .nl a:hover{opacity:.5}
 .nlang{display:flex;align-items:center;gap:6px;font-size:15px}
 .nlang-sep{width:1px;height:16px;background:rgba(63,49,18,.2)}
-.nlang-active{color:var(--br)}
-.nlang-dim{color:rgba(63,49,18,.22)}
+.nlang-btn{background:none;border:none;cursor:pointer;font-family:var(--fb);font-size:15px;padding:0;line-height:1}
+.nlang-active{color:var(--br);font-weight:700}
+.nlang-dim{color:rgba(63,49,18,.35);font-weight:400}
 .ntog{display:none;background:none;border:none;cursor:pointer;padding:4px;line-height:0}
 
 /* Mobile drawer */
@@ -396,16 +397,16 @@ footer{
 <!-- ── NAV ── -->
 <nav id="nav" aria-label="Huvudmeny">
   <ul class="nl">
-    <li><a href="#hem"  onclick="smoothNav(event,'hem')">Hem</a></li>
-    <li><a href="#om"   onclick="smoothNav(event,'om')">Om oss</a></li>
-    <li><a href="#rev"  onclick="smoothNav(event,'rev')">Omdömen</a></li>
-    <li><a href="#rec"  onclick="smoothNav(event,'rec')">Recept</a></li>
-    <li><a href="#kon"  onclick="smoothNav(event,'kon')">Kontakt</a></li>
+    <li><a href="#hem"  onclick="smoothNav(event,'hem')" data-i18n="nav.hem">Hem</a></li>
+    <li><a href="#om"   onclick="smoothNav(event,'om')" data-i18n="nav.om">Om oss</a></li>
+    <li><a href="#rev"  onclick="smoothNav(event,'rev')" data-i18n="nav.rev">Omdömen</a></li>
+    <li><a href="#rec"  onclick="smoothNav(event,'rec')" data-i18n="nav.rec">Recept</a></li>
+    <li><a href="#kon"  onclick="smoothNav(event,'kon')" data-i18n="nav.kon">Kontakt</a></li>
   </ul>
   <div class="nlang">
-    <span class="nlang-active">SV</span>
+    <button class="nlang-btn nlang-active" id="lang-sv" onclick="setLang('sv')" aria-label="Svenska">SV</button>
     <div class="nlang-sep"></div>
-    <span class="nlang-dim">EN</span>
+    <button class="nlang-btn nlang-dim" id="lang-en" onclick="setLang('en')" aria-label="English">EN</button>
   </div>
   <button type="button" class="ntog" id="ntog" aria-label="Öppna meny" aria-controls="drawer" aria-expanded="false">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3f3112" stroke-width="1.5">
@@ -431,10 +432,10 @@ footer{
     <!-- Leaf branch decoration -->
     <img class="hero-leaf fu" src="images/hero-leaf.webp" alt="" width="494" height="362" loading="eager" decoding="async">
     <h1 class="h-title fu">Säby</h1>
-    <p class="h-sub fu d1" aria-label="Waldorfförskola">Waldorfförskola</p>
-    <p class="h-desc fu d2">En förskola i unik miljö vid Järvafältets naturreservat, huserad i genuin slottsmiljö på Säby gård.</p>
+    <p class="h-sub fu d1" aria-label="Waldorfförskola" data-i18n="hero.subtitle">Waldorfförskola</p>
+    <p class="h-desc fu d2" data-i18n="hero.desc">En förskola i unik miljö vid Järvafältets naturreservat, huserad i genuin slottsmiljö på Säby gård.</p>
     <button type="button" onclick="scrollToAbout()" class="btn fu d3">
-      Läs mer
+      <span data-i18n="hero.cta">Läs mer</span>
       <span class="cta-arrow" aria-hidden="true">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v10M3.5 9l4.5 4.5L12.5 9"/></svg>
       </span>
@@ -450,15 +451,15 @@ footer{
   <div class="about-grid">
     <!-- Left: text -->
     <div>
-      <h2 class="about-h fu">Där barndomen får ta sin tid</h2>
-      <p class="about-p fu d1">På vår förskola erbjuder vi en lugn och trygg miljö där varje barn får utvecklas i sin egen takt. Vi arbetar utifrån Waldorfpedagogiken, där lek, rytm och kreativt skapande står i centrum. Genom sagor, sång, rörelse och naturupplevelser stärker vi barnens fantasi, nyfikenhet och lust att lära.</p>
-      <p class="about-p fu d2">Vardagen följer en tydlig rytm som ger trygghet och igenkänning. Vi är mycket ute i naturen, oavsett årstid, och låter barnen uppleva årstidernas växlingar på nära håll. Materialen vi använder är enkla och naturliga, vilket ger utrymme för fantasi och egen lek.</p>
-      <p class="about-p fu d2">Vi värnar om ett nära samarbete med familjerna och ser varje barn som en unik individ.</p>
+      <h2 class="about-h fu" data-i18n="about.heading">Där barndomen får ta sin tid</h2>
+      <p class="about-p fu d1" data-i18n="about.p1">På vår förskola erbjuder vi en lugn och trygg miljö där varje barn får utvecklas i sin egen takt. Vi arbetar utifrån Waldorfpedagogiken, där lek, rytm och kreativt skapande står i centrum. Genom sagor, sång, rörelse och naturupplevelser stärker vi barnens fantasi, nyfikenhet och lust att lära.</p>
+      <p class="about-p fu d2" data-i18n="about.p2">Vardagen följer en tydlig rytm som ger trygghet och igenkänning. Vi är mycket ute i naturen, oavsett årstid, och låter barnen uppleva årstidernas växlingar på nära håll. Materialen vi använder är enkla och naturliga, vilket ger utrymme för fantasi och egen lek.</p>
+      <p class="about-p fu d2" data-i18n="about.p3">Vi värnar om ett nära samarbete med familjerna och ser varje barn som en unik individ.</p>
     </div>
     <!-- Right: admissions card -->
     <div class="adm-card fu d1">
-      <h3 class="adm-h">Så får ditt barn en plats</h3>
-      <p class="adm-p">Förskolan ingår i den kommunala barnomsorgsplanen och drivs av stiftelsen Säby Waldorfförskola. Verksamheten är öppen för barn mellan 1 och 7 år, och antagning sker via kommunens och förskolans kö.</p>
+      <h3 class="adm-h" data-i18n="about.adm_heading">Så får ditt barn en plats</h3>
+      <p class="adm-p" data-i18n="about.adm_p1">Förskolan ingår i den kommunala barnomsorgsplanen och drivs av stiftelsen Säby Waldorfförskola. Verksamheten är öppen för barn mellan 1 och 7 år, och antagning sker via kommunens och förskolans kö.</p>
       <p class="adm-p">Du kan läsa mer och ansöka om plats via Järfälla kommuns sida för <a href="https://e-tjanster.jarfalla.se/oversikt/overview/742#Ansokomforskoleplats" target="_blank" rel="noopener noreferrer">ansökan till förskola och pedagogisk omsorg</a> →</p>
     </div>
   </div>
@@ -498,11 +499,11 @@ footer{
 
 <!-- ── REVIEWS ── -->
 <section id="rev" class="pw section">
-  <h2 class="rev-h fu">Med värme från våra familjer</h2>
+  <h2 class="rev-h fu" data-i18n="reviews.heading">Med värme från våra familjer</h2>
   <div class="rev-meta fu d1">
-    <span>Berättelser om omsorg, växande och glädje</span>
+    <span data-i18n="reviews.sub">Berättelser om omsorg, växande och glädje</span>
     <div class="rev-dot"></div>
-    <a href="https://www.schoolparrot.se/schools/saeby-waldorffoerskolan-3864" target="_blank" rel="noopener noreferrer" style="font-style:italic">Läs omdömen på <span style="text-decoration:underline">SchoolParrot</span></a>
+    <a href="https://www.schoolparrot.se/schools/saeby-waldorffoerskolan-3864" target="_blank" rel="noopener noreferrer" style="font-style:italic" data-i18n="reviews.schoolparrot">Läs omdömen på <span style="text-decoration:underline">SchoolParrot</span></a>
   </div>
   <div class="rev-grid">
     <!-- Col 1: two stacked cards -->
@@ -516,11 +517,11 @@ footer{
             <div class="star"><svg viewBox="0 0 13 13"><path d="M6.5 1l1.6 3.3L12 5.1l-2.8 2.7.7 3.8-3.4-1.8-3.4 1.8.7-3.8L1 5.1l3.9-.8z"/></svg></div>
             <div class="star"><svg viewBox="0 0 13 13"><path d="M6.5 1l1.6 3.3L12 5.1l-2.8 2.7.7 3.8-3.4-1.8-3.4 1.8.7-3.8L1 5.1l3.9-.8z"/></svg></div>
           </div>
-          <span class="rev-date">9 jan 2024</span>
+          <span class="rev-date" data-i18n="reviews.r1_date">9 jan 2024</span>
         </div>
         <div>
-          <p class="rev-title">Kan inte tänka mig en bättre förskola</p>
-          <p class="rev-body">Förskolan ligger i ett naturreservat, bredvid ett stort stall, runtom förskolan finns det bara natur. Personalen är underbar, dom flesta har gått eller haft sina barn på förskolan. Jag är verkligen nöjd och glad att mitt barn går på den här förskolan. Rekommenderar den verkligen.</p>
+          <p class="rev-title" data-i18n="reviews.r1_title">Kan inte tänka mig en bättre förskola</p>
+          <p class="rev-body" data-i18n-html="reviews.r1_body">Förskolan ligger i ett naturreservat, bredvid ett stort stall, runtom förskolan finns det bara natur. Personalen är underbar, dom flesta har gått eller haft sina barn på förskolan. Jag är verkligen nöjd och glad att mitt barn går på den här förskolan. Rekommenderar den verkligen.</p>
         </div>
       </div>
       <div class="rev-card fu d1">
@@ -532,11 +533,11 @@ footer{
             <div class="star"><svg viewBox="0 0 13 13"><path d="M6.5 1l1.6 3.3L12 5.1l-2.8 2.7.7 3.8-3.4-1.8-3.4 1.8.7-3.8L1 5.1l3.9-.8z"/></svg></div>
             <div class="star"><svg viewBox="0 0 13 13"><path d="M6.5 1l1.6 3.3L12 5.1l-2.8 2.7.7 3.8-3.4-1.8-3.4 1.8.7-3.8L1 5.1l3.9-.8z"/></svg></div>
           </div>
-          <span class="rev-date">15 maj 2023</span>
+          <span class="rev-date" data-i18n="reviews.r2_date">15 maj 2023</span>
         </div>
         <div>
-          <p class="rev-title">Nöjd familj</p>
-          <p class="rev-body">Så nöjd med den här förskolan, fin personal, otroligt naturområde där förskolan ligger, dom har eigen kock med vegetarisk kost gjord från grunden. Är så nöjd!</p>
+          <p class="rev-title" data-i18n="reviews.r2_title">Nöjd familj</p>
+          <p class="rev-body" data-i18n-html="reviews.r2_body">Så nöjd med den här förskolan, fin personal, otroligt naturområde där förskolan ligger, dom har eigen kock med vegetarisk kost gjord från grunden. Är så nöjd!</p>
         </div>
       </div>
     </div>
@@ -550,11 +551,11 @@ footer{
           <div class="star"><svg viewBox="0 0 13 13"><path d="M6.5 1l1.6 3.3L12 5.1l-2.8 2.7.7 3.8-3.4-1.8-3.4 1.8.7-3.8L1 5.1l3.9-.8z"/></svg></div>
           <div class="star"><svg viewBox="0 0 13 13"><path d="M6.5 1l1.6 3.3L12 5.1l-2.8 2.7.7 3.8-3.4-1.8-3.4 1.8.7-3.8L1 5.1l3.9-.8z"/></svg></div>
         </div>
-        <span class="rev-date">18 sep 2019</span>
+        <span class="rev-date" data-i18n="reviews.r3_date">18 sep 2019</span>
       </div>
       <div>
-        <p class="rev-title">Barnet alltid i fokus</p>
-        <p class="rev-body">En bättre start i livet finns inte. Förskolan erbjuder förutom ett livslångt lärande även trygghet, lugn och harmoni. Miljöerna är anpassade efter barns utveckling och ålder, skapar en lugn atmosfär och låter kreativiteten hos barnen flöda.<br><br>Pedagogerna är ömma, rättvisa och professionella. Barnet står alltid i fokus. Trygghet är A och O. Inga okända vikarier och små barngrupper.<br><br>Giftfri förskola. Vegetarisk och ekologisk mat. Egen kock som lagar mat i världsklass.<br><br>Blir förundrad över hur mycket mitt barn lär sig. Säby Waldorfförskola ger barnet en bred kunskap. Fin- och grovmotorik, språk, matematik, naturvetenskap m.m.</p>
+        <p class="rev-title" data-i18n="reviews.r3_title">Barnet alltid i fokus</p>
+        <p class="rev-body" data-i18n-html="reviews.r3_body">En bättre start i livet finns inte. Förskolan erbjuder förutom ett livslångt lärande även trygghet, lugn och harmoni. Miljöerna är anpassade efter barns utveckling och ålder, skapar en lugn atmosfär och låter kreativiteten hos barnen flöda.<br><br>Pedagogerna är ömma, rättvisa och professionella. Barnet står alltid i fokus. Trygghet är A och O. Inga okända vikarier och små barngrupper.<br><br>Giftfri förskola. Vegetarisk och ekologisk mat. Egen kock som lagar mat i världsklass.<br><br>Blir förundrad över hur mycket mitt barn lär sig. Säby Waldorfförskola ger barnet en bred kunskap. Fin- och grovmotorik, språk, matematik, naturvetenskap m.m.</p>
       </div>
     </div>
   </div>
@@ -565,10 +566,10 @@ footer{
   <div class="rec-banner fu">
     <img class="rec-bg" src="images/recipes-bg.webp" alt="" loading="lazy" decoding="async">
     <div class="rec-content">
-        <h2 class="rec-h">Från köket på Säby</h2>
-        <p class="rec-p">Varje vecka lagar vi mat från grunden, ekologiskt, vegetariskt och med kärlek. Ta hem lite av Säby-känslan till ditt eget kök.</p>
+        <h2 class="rec-h" data-i18n="recipes.heading">Från köket på Säby</h2>
+        <p class="rec-p" data-i18n="recipes.body">Varje vecka lagar vi mat från grunden, ekologiskt, vegetariskt och med kärlek. Ta hem lite av Säby-känslan till ditt eget kök.</p>
       <a href="recepthafte.pdf" download class="btn-orange">
-        Ladda ner recepthäftet
+        <span data-i18n="recipes.cta">Ladda ner recepthäftet</span>
         <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9M4 8l4 4 4-4M2 14h12" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </div>
@@ -585,8 +586,8 @@ footer{
         <img src="images/contact-door.webp" alt="Ingången till Säby gård" loading="lazy" decoding="async">
       </div>
       <div class="info-card-body">
-        <h2 class="info-card-h">Välkommen att besöka oss</h2>
-        <p class="info-card-p">Kontakta oss gärna så berättar vi mer, vi svarar mellan kl.&nbsp;08.00–14.00</p>
+        <h2 class="info-card-h" data-i18n="contact.heading">Välkommen att besöka oss</h2>
+        <p class="info-card-p" data-i18n="contact.body">Kontakta oss gärna så berättar vi mer, vi svarar mellan kl.&nbsp;08.00–14.00</p>
         <div class="cf-btns">
           <a href="tel:+46858034020" class="cf-btn">
             <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M14.5 11.2l-3-1.3a1 1 0 00-1.1.3L9 11.6A10 10 0 014.4 7L5.8 5.6a1 1 0 00.3-1.1L4.8 1.5A1 1 0 003.9 1H2a1 1 0 00-1 1.1C1.4 9.2 6.8 14.6 14 15a1 1 0 001-1V12.2a1 1 0 00-.5-.9z" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
@@ -612,11 +613,11 @@ footer{
         </iframe>
       </div>
       <div class="info-card-body">
-        <h2 class="info-card-h">Hitta hit</h2>
-        <p class="info-card-p">Säby Waldorfförskola är belägen på Säby gård, vid Säbysjön i naturreservatet, i naturskön miljö på Järvafältet, endast 1 km från Jakobsbergs centrum.</p>
+        <h2 class="info-card-h" data-i18n="map.heading">Hitta hit</h2>
+        <p class="info-card-p" data-i18n="map.body">Säby Waldorfförskola är belägen på Säby gård, vid Säbysjön i naturreservatet, i naturskön miljö på Järvafältet, endast 1 km från Jakobsbergs centrum.</p>
         <a href="https://www.google.com/maps/search/?api=1&query=Säby+Gård,+177+38+Järfälla" target="_blank" rel="noopener noreferrer" class="map-addr">
           <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1C6 1 4 2.8 4 5c0 3.2 4 9 4 9s4-5.8 4-9c0-2.2-1.8-4-4-4zm0 5.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3z" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Säby Gård, 177 38 Järfälla
+          <span data-i18n="map.addr">Säby Gård, 177 38 Järfälla</span>
         </a>
       </div>
     </div>
@@ -638,7 +639,7 @@ footer{
     </div>
     <a class="ft-ig" href="https://www.instagram.com/sabywaldorfforskola/" target="_blank" rel="noopener noreferrer" aria-label="Följ Säby Waldorfförskola på Instagram">
       <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="1.5" width="13" height="13" rx="3.5"/><circle cx="8" cy="8" r="3"/><circle cx="11.5" cy="4.5" r=".8" fill="currentColor"/></svg>
-      <span>Följ oss på Instagram</span>
+      <span data-i18n="footer.ig">Följ oss på Instagram</span>
     </a>
   </div>
 </footer>
@@ -666,7 +667,63 @@ const io = new IntersectionObserver(es=>{
 document.querySelectorAll('.fu').forEach(el=>io.observe(el));
 setTimeout(()=>document.querySelectorAll('.hero .fu').forEach(el=>el.classList.add('in')), 80);
 
-/* ---- Smooth scroll ---- */
+/* ---- i18n ---- */
+let currentLang = localStorage.getItem('lang') || 'sv';
+let translations = {};
+
+async function loadLang(lang) {
+  if (!translations[lang]) {
+    const res = await fetch(`${lang}.json`);
+    translations[lang] = await res.json();
+  }
+  return translations[lang];
+}
+
+function getNestedKey(obj, key) {
+  return key.split('.').reduce((o, k) => (o ? o[k] : undefined), obj);
+}
+
+async function applyLang(lang) {
+  const t = await loadLang(lang);
+
+  // text nodes
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const val = getNestedKey(t, el.dataset.i18n);
+    if (val !== undefined) el.textContent = val;
+  });
+
+  // html nodes (reviews with <br>)
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const val = getNestedKey(t, el.dataset.i18nHtml);
+    if (val !== undefined) el.innerHTML = val;
+  });
+
+  // special: adm_p2 has a link inside — rebuild it
+  const adm2Els = document.querySelectorAll('[data-i18n="about.adm_p2"]');
+  adm2Els.forEach(el => {
+    el.innerHTML = `${t.about.adm_p2} <a href="https://e-tjanster.jarfalla.se/oversikt/overview/742#Ansokomforskoleplats" target="_blank" rel="noopener noreferrer">${t.about.adm_link}</a> ${t.about.adm_arrow}`;
+  });
+
+  // update <html lang>
+  document.documentElement.lang = lang;
+
+  // update switcher buttons
+  document.getElementById('lang-sv').classList.toggle('nlang-active', lang === 'sv');
+  document.getElementById('lang-sv').classList.toggle('nlang-dim', lang !== 'sv');
+  document.getElementById('lang-en').classList.toggle('nlang-active', lang === 'en');
+  document.getElementById('lang-en').classList.toggle('nlang-dim', lang !== 'en');
+
+  localStorage.setItem('lang', lang);
+  currentLang = lang;
+}
+
+async function setLang(lang) {
+  if (lang === currentLang) return;
+  await applyLang(lang);
+}
+
+// init on load
+applyLang(currentLang);
 function easeOutBack(t){ const c1=1.15,c3=c1+1; return 1+c3*Math.pow(t-1,3)+c1*Math.pow(t-1,2); }
 function animateScroll(end){ if(RM.matches){window.scrollTo(0,end);return;} const start=window.scrollY,dist=end-start,dur=450;let t0=null; function step(ts){if(!t0)t0=ts;const p=Math.min((ts-t0)/dur,1);window.scrollTo(0,start+dist*easeOutBack(p));if(p<1)requestAnimationFrame(step);} requestAnimationFrame(step); }
 function scrollToAbout(){ const t=document.getElementById('om');if(!t)return; animateScroll(t.getBoundingClientRect().top+window.scrollY-80); }
