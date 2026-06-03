@@ -127,11 +127,11 @@ nav.scrolled{border-color:rgba(63,49,18,.12)}
 /* ══════════════════════════════════
    PAGE WRAPPER
 ══════════════════════════════════ */
-.pw{max-width:1728px;margin:0 auto;padding:0 var(--ph)}
+.pw{max-width:1728px;margin:0 auto;padding:0 64px}
 
-@media(min-width:600px){  :root{--ph:32px} }
-@media(min-width:1024px){ :root{--ph:64px} }
-@media(min-width:1440px){ :root{--ph:120px} }
+@media(min-width:1440px){ .pw{padding:0 120px} }
+@media(max-width:1023px){ .pw{padding:0 32px} }
+@media(max-width:599px){  .pw{padding:0 16px} }
 .section{padding:96px 0}
 
 /* ══════════════════════════════════
