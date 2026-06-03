@@ -244,6 +244,10 @@ nav.scrolled{border-color:rgba(63,49,18,.12)}
   background:var(--sand);
   display:flex;flex-direction:column;
 }
+.info-card--bordered{
+  background:#fff;
+  border:3px solid var(--sand2);
+}
 
 /* top image / map area — flex-grows so both cards match height */
 .info-card-media{
@@ -597,7 +601,7 @@ footer{
     </div>
 
     <!-- Map card -->
-    <div class="info-card fu d1" id="find">
+    <div class="info-card info-card--bordered fu d1" id="find">
       <div class="info-card-media">
         <iframe
           title="Karta – Säby Waldorfförskola"
