@@ -205,7 +205,7 @@ nav.scrolled{border-color:rgba(63,49,18,.12)}
 .rev-card{border:3px solid var(--sand2);border-radius:var(--r);padding:32px;display:flex;flex-direction:column;gap:32px}
 .rev-hd{display:flex;align-items:center;justify-content:space-between}
 .stars{display:flex;gap:4px}
-.star{width:24px;height:24px;background:#f5b061;border-radius:4px;display:flex;align-items:center;justify-content:center}
+.star{width:24px;height:24px;background:#7a8c5c;border-radius:4px;display:flex;align-items:center;justify-content:center}
 .star svg{width:13px;height:13px;fill:#fff}
 .rev-date{font-size:16px;color:var(--brl)}
 .rev-title{font-size:18px;font-weight:700;line-height:1.5;margin-bottom:4px}
@@ -236,7 +236,7 @@ nav.scrolled{border-color:rgba(63,49,18,.12)}
 /* ══════════════════════════════════
    CONTACT + FIND — two equal cards
 ══════════════════════════════════ */
-.cf-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.cf-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:stretch}
 
 /* shared card shell */
 .info-card{
@@ -245,23 +245,19 @@ nav.scrolled{border-color:rgba(63,49,18,.12)}
   display:flex;flex-direction:column;
 }
 
-/* top image / map area */
+/* top image / map area — flex-grows so both cards match height */
 .info-card-media{
-  width:100%;height:280px;
-  position:relative;flex-shrink:0;overflow:hidden;
+  width:100%;flex:1;min-height:260px;
+  position:relative;overflow:hidden;
 }
 .info-card-media iframe{
   position:absolute;inset:0;width:100%;height:100%;border:none;
   filter:sepia(30%) saturate(80%) brightness(1.05) contrast(.95);
 }
-/* placeholder for contact image */
-.info-card-placeholder{
-  width:100%;height:100%;
-  background:linear-gradient(135deg,#ede5d8 0%,#d9cbb8 50%,#c8b89a 100%);
-  display:flex;align-items:center;justify-content:center;
-}
-.info-card-placeholder svg{
-  width:64px;height:64px;opacity:.35;stroke:var(--br);stroke-width:1;fill:none;
+.info-card-media img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center top;
+  mix-blend-mode:multiply;
 }
 
 /* bottom text area */
@@ -277,7 +273,7 @@ nav.scrolled{border-color:rgba(63,49,18,.12)}
 .info-card-p{font-size:16px;line-height:1.65;color:#000;}
 
 /* contact buttons */
-.cf-btns{display:flex;flex-direction:column;gap:12px}
+.cf-btns{display:flex;flex-direction:row;gap:12px;flex-wrap:nowrap}
 .cf-btn{
   display:flex;align-items:center;gap:14px;
   background:#fff;border-radius:14px;
@@ -340,7 +336,7 @@ footer{
   .rec-content{padding:64px 48px 48px}
 
   .cf-grid{grid-template-columns:1fr;gap:48px}
-  .info-card-media{height:220px}
+  .info-card-media{min-height:220px}
 
   footer{padding:0}
   .footer-inner{height:auto;padding:20px 24px;gap:12px;flex-wrap:wrap;justify-content:flex-start}
@@ -378,8 +374,9 @@ footer{
 
   .cf-grid{grid-template-columns:1fr;gap:40px}
   .cf-btns{flex-direction:column}
-  .cf-btn{justify-content:center}
-  .info-card-media{height:200px}
+  .cf-btns{flex-wrap:wrap}
+  .cf-btn{justify-content:center;flex:1;min-width:0}
+  .info-card-media{min-height:180px}
 
   .map-h{font-size:29px}
 
@@ -564,10 +561,8 @@ footer{
   <div class="rec-banner fu">
     <img class="rec-bg" src="images/recipes-bg.webp" alt="" loading="lazy" decoding="async">
     <div class="rec-content">
-      <div>
         <h2 class="rec-h">Från köket på Säby</h2>
         <p class="rec-p">Varje vecka lagar vi mat från grunden, ekologiskt, vegetariskt och med kärlek. Ta hem lite av Säby-känslan till ditt eget kök.</p>
-      </div>
       <a href="recepthafte.pdf" download class="btn-orange">
         Ladda ner recepthäftet
         <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9M4 8l4 4 4-4M2 14h12" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -583,17 +578,7 @@ footer{
     <!-- Contact card -->
     <div class="info-card fu">
       <div class="info-card-media">
-        <div class="info-card-placeholder" aria-hidden="true">
-          <!-- placeholder: house/school illustration -->
-          <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 70 L10 35 L40 12 L70 35 L70 70 Z"/>
-            <rect x="30" y="48" width="20" height="22" rx="2"/>
-            <rect x="14" y="42" width="12" height="12" rx="1"/>
-            <rect x="54" y="42" width="12" height="12" rx="1"/>
-            <path d="M4 36 L40 8 L76 36"/>
-            <path d="M36 12 L36 4 L44 4 L44 12"/>
-          </svg>
-        </div>
+        <img src="images/contact-door.webp" alt="Ingången till Säby gård" loading="lazy" decoding="async">
       </div>
       <div class="info-card-body">
         <h2 class="info-card-h">Är ni intresserade av ett besök eller en visning?</h2>
