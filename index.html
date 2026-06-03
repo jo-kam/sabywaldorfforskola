@@ -132,6 +132,19 @@ nav.scrolled{border-color:rgba(63,49,18,.12)}
 @keyframes arrowBob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
 .btn:hover .cta-arrow{animation-play-state:paused}
 
+
+.btn-link {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
 /* wave divider */
 .hero-wave{display:block;width:100%;height:auto;margin-top:-2px}
 
@@ -390,11 +403,13 @@ footer{
   <div class="hero-content">
     <h1 class="h-title fu">Säby</h1>
     <p class="h-sub fu d1" aria-label="Waldorfförskola">Waldorfförskola</p>
-    <p class="h-desc fu d2">En förskola i unik miljö vid Järvafältets naturreservat, huserad i <strong>genuin slottsmiljö</strong> på Säby gård.</p>
-    <button type="button" onclick="scrollToAbout()" class="btn fu d3">
-      Läs mer
-      <span class="cta-arrow" aria-hidden="true">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v10M3.5 9l4.5 4.5L12.5 9"/></svg>
+    <p class="h-desc fu d2">En förskola i unik miljö vid Järvafältets naturreservat, huserad i genuin slottsmiljö på Säby gård.</p>
+   <button type="button" onclick="scrollToAbout()" class="btn-link fu d3">
+  Läs mer
+  <span class="cta-arrow" aria-hidden="true">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v10M3.5 9l4.5 4.5L12.5 9"/></svg>
+  </span>
+</button>
       </span>
     </button>
   </div>
@@ -541,7 +556,7 @@ footer{
     <!-- Contact left -->
     <div class="fu">
       <h2 class="cf-h">Är ni intresserade av ett besök eller en visning?</h2>
-      <p class="cf-sub">Kontakta oss gärna så berättar vi mer, vi svarar <strong>mellan kl.&nbsp;08.00–14.00</strong></p>
+      <p class="cf-sub">Kontakta oss gärna så berättar vi mer, vi svarar mellan kl.&nbsp;08.00–14.00</p>
       <div class="cf-btns">
         <a href="tel:+46858034020" class="cf-btn">
           <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M14.5 11.2l-3-1.3a1 1 0 00-1.1.3L9 11.6A10 10 0 014.4 7L5.8 5.6a1 1 0 00.3-1.1L4.8 1.5A1 1 0 003.9 1H2a1 1 0 00-1 1.1C1.4 9.2 6.8 14.6 14 15a1 1 0 001-1V12.2a1 1 0 00-.5-.9z" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
@@ -559,7 +574,7 @@ footer{
       <div class="map-overlay">
         <div>
           <h2 class="map-h">Hitta hit</h2>
-          <p class="map-p">Säby Waldorfförskola är belägen på Säby gård, vid <strong>Säbysjön</strong> <b>i naturreservatet</b>, en av Järfällas vackraste adresser, i naturskön miljö på Järvafältet, endast 1 km från Jakobsbergs centrum.</p>
+          <p class="map-p">Säby Waldorfförskola är belägen på Säby gård, vid Säbysjön <b>i naturreservatet</b>, en av Järfällas vackraste adresser, i naturskön miljö på Järvafältet, endast 1 km från Jakobsbergs centrum.</p>
         </div>
         <a href="https://www.google.com/maps/search/?api=1&query=Säby+Gård,+177+38+Järfälla" target="_blank" rel="noopener noreferrer" class="map-addr">
           <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1C6 1 4 2.8 4 5c0 3.2 4 9 4 9s4-5.8 4-9c0-2.2-1.8-4-4-4zm0 5.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3z" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
