@@ -75,7 +75,8 @@ nav.scrolled{border-color:rgba(63,49,18,.12)}
 .nlang-dim{color:rgba(63,49,18,.35);font-weight:400}
 .ntog{display:none;background:none;border:none;cursor:pointer;padding:4px;line-height:0}
 
-/* Mobile drawer */
+.drawer-lang{display:flex;align-items:center;gap:12px;margin-top:8px}
+.drawer-lang-btn{background:none;border:none;cursor:pointer;font-family:var(--fb);font-weight:700;font-size:24px;padding:0;line-height:1;color:var(--br)}
 .drawer{display:none;position:fixed;inset:0;z-index:99;background:#faf6ef;flex-direction:column;padding:90px 32px 48px;gap:28px}
 .drawer.open{display:flex}
 .drawer a{font-family:var(--fb);font-weight:700;font-size:32px;color:var(--br)}
@@ -421,11 +422,16 @@ footer{
 
 <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Meny" aria-hidden="true">
   <button type="button" class="dc" id="dc" aria-label="Stäng meny">×</button>
-  <a href="#hem"  onclick="cd();smoothNav(event,'hem')">Hem</a>
-  <a href="#om"   onclick="cd();smoothNav(event,'om')">Om oss</a>
-  <a href="#rev"  onclick="cd();smoothNav(event,'rev')">Omdömen</a>
-  <a href="#rec"  onclick="cd();smoothNav(event,'rec')">Recept</a>
-  <a href="#kon"  onclick="cd();smoothNav(event,'kon')">Kontakt</a>
+  <a href="#hem"  onclick="cd();smoothNav(event,'hem')" data-i18n="nav.hem">Hem</a>
+  <a href="#om"   onclick="cd();smoothNav(event,'om')" data-i18n="nav.om">Om oss</a>
+  <a href="#rev"  onclick="cd();smoothNav(event,'rev')" data-i18n="nav.rev">Omdömen</a>
+  <a href="#rec"  onclick="cd();smoothNav(event,'rec')" data-i18n="nav.rec">Recept</a>
+  <a href="#kon"  onclick="cd();smoothNav(event,'kon')" data-i18n="nav.kon">Kontakt</a>
+  <div class="drawer-lang">
+    <button class="drawer-lang-btn nlang-active" id="drawer-lang-sv" onclick="setLang('sv')" aria-label="Svenska">SV</button>
+    <div class="nlang-sep"></div>
+    <button class="drawer-lang-btn nlang-dim" id="drawer-lang-en" onclick="setLang('en')" aria-label="English">EN</button>
+  </div>
 </div>
 
 <main id="main">
@@ -711,11 +717,13 @@ async function applyLang(lang) {
   // update <html lang>
   document.documentElement.lang = lang;
 
-  // update switcher buttons
-  document.getElementById('lang-sv').classList.toggle('nlang-active', lang === 'sv');
-  document.getElementById('lang-sv').classList.toggle('nlang-dim', lang !== 'sv');
-  document.getElementById('lang-en').classList.toggle('nlang-active', lang === 'en');
-  document.getElementById('lang-en').classList.toggle('nlang-dim', lang !== 'en');
+  // update switcher buttons (nav + drawer)
+  ['sv','en'].forEach(l => {
+    document.getElementById(`lang-${l}`)?.classList.toggle('nlang-active', l === lang);
+    document.getElementById(`lang-${l}`)?.classList.toggle('nlang-dim', l !== lang);
+    document.getElementById(`drawer-lang-${l}`)?.classList.toggle('nlang-active', l === lang);
+    document.getElementById(`drawer-lang-${l}`)?.classList.toggle('nlang-dim', l !== lang);
+  });
 
   localStorage.setItem('lang', lang);
   currentLang = lang;
