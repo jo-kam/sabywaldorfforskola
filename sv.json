@@ -43,7 +43,7 @@
   },
   "contact": {
     "heading": "Välkommen att besöka oss",
-    "body": "Kontakta oss gärna så berättar vi mer, vi svarar mellan kl.\u00a008.00–14.00"
+    "body": "Kontakta oss gärna så berättar vi mer, vi svarar mellan kl. 08.00–14.00"
   },
   "map": {
     "heading": "Hitta hit",
@@ -52,5 +52,15 @@
   },
   "footer": {
     "ig": "Följ oss på Instagram"
+  },
+  "features": {
+    "f1_h": "Unik naturmiljö",
+    "f1_p": "Vi håller till på Säby gård mitt i Järvafältets naturreservat — ett av Stockholms vackraste. Barnen är ute varje dag, oavsett väder, och lär känna årstidernas rytm på nära håll.",
+    "f2_h": "Riktig mat från grunden",
+    "f2_p": "Vår egen kock lagar vegetarisk, ekologisk mat varje dag — utan processade råvaror eller färdigmat. Barnen äter vällagad husmanskost gjord med kärlek och goda råvaror.",
+    "f3_h": "Waldorfpedagogik",
+    "f3_p": "Vi arbetar med en tydlig dagsrytm, hantverk, sång, sagor och skapande lek. Barnen lär sig genom att göra — med händerna, kroppen och fantasin i samspel.",
+    "f4_h": "Små och trygga grupper",
+    "f4_p": "Hos de yngre barnen är vi max 8 i gruppen, hos de äldre max 12. Färre barn ger mer tid, mer närvaro och en tryggare vardag — för både barn och familj."
   }
 }

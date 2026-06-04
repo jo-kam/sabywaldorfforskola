@@ -52,5 +52,15 @@
   },
   "footer": {
     "ig": "Follow us on Instagram"
+  },
+  "features": {
+    "f1_h": "A unique natural setting",
+    "f1_p": "We are based at Säby Gård in the heart of the Järvafältet nature reserve — one of Stockholm's most beautiful. Children are outdoors every day regardless of weather, experiencing the seasons up close.",
+    "f2_h": "Real food, made from scratch",
+    "f2_p": "Our own chef prepares vegetarian, organic food every day — no processed ingredients or ready-made meals. Children eat wholesome home cooking made with care and quality produce.",
+    "f3_h": "Waldorf pedagogy",
+    "f3_p": "We work with a clear daily rhythm, handcraft, song, storytelling and creative play. Children learn by doing — with their hands, bodies and imagination working together.",
+    "f4_h": "Small, secure groups",
+    "f4_p": "For our youngest children groups are capped at 8, for older children at 12. Fewer children means more time, more presence and a calmer daily life — for children and families alike."
   }
 }
