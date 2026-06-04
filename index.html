@@ -238,7 +238,7 @@ nav.scrolled{border-color:rgba(63,49,18,.12)}
 .rev-dot{width:4px;height:4px;border-radius:50%;background:var(--br)}
 .rev-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
 .rev-col{display:flex;flex-direction:column;gap:32px}
-.rev-card{border:3px solid var(--sand2);border-radius:var(--r);padding:32px;display:flex;flex-direction:column;gap:32px}
+.rev-card{border:1px solid var(--sand2);border-radius:var(--r);padding:32px;display:flex;flex-direction:column;gap:32px}
 .rev-hd{display:flex;align-items:center;justify-content:space-between}
 .stars{display:flex;gap:4px}
 .star{width:24px;height:24px;background:#5c7a4a;border-radius:4px;display:flex;align-items:center;justify-content:center}
@@ -282,7 +282,7 @@ nav.scrolled{border-color:rgba(63,49,18,.12)}
 }
 .info-card--bordered{
   background:#fff;
-  border:3px solid var(--sand2);
+  border:1px solid var(--sand2);
 }
 
 /* top image / map area — flex-grows so both cards match height */
@@ -544,37 +544,6 @@ footer{
 </section>
 
 <!-- ── GALLERY STRIP ── -->
-<div class="gallery-strip-wrap" aria-hidden="true">
-  <div class="gallery-strip" id="galleryStrip">
-    <!-- original 12 images duplicated for infinite scroll -->
-    <div class="gallery-cell"><img src="images/gallery-7.webp"  alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-1.webp"  alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-8.webp"  alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-2.webp"  alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-9.webp"  alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-3.webp"  alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-10.webp" alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-4.webp"  alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-11.webp" alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-5.webp"  alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-12.webp" alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-6.webp"  alt="" loading="lazy" decoding="async"></div>
-    <!-- duplicate for seamless loop -->
-    <div class="gallery-cell"><img src="images/gallery-7.webp"  alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-1.webp"  alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-8.webp"  alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-2.webp"  alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-9.webp"  alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-3.webp"  alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-10.webp" alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-4.webp"  alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-11.webp" alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-5.webp"  alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-12.webp" alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-6.webp"  alt="" loading="lazy" decoding="async"></div>
-  </div>
-</div>
-
 <!-- ── REVIEWS ── -->
 <section id="rev" class="pw section">
   <h2 class="rev-h fu" data-i18n="reviews.heading">Med värme från våra familjer</h2>
@@ -638,6 +607,37 @@ footer{
     </div>
   </div>
 </section>
+
+<div class="gallery-strip-wrap" aria-hidden="true">
+  <div class="gallery-strip" id="galleryStrip">
+    <!-- original 12 images duplicated for infinite scroll -->
+    <div class="gallery-cell"><img src="images/gallery-7.webp"  alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-1.webp"  alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-8.webp"  alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-2.webp"  alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-9.webp"  alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-3.webp"  alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-10.webp" alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-4.webp"  alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-11.webp" alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-5.webp"  alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-12.webp" alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-6.webp"  alt="" loading="lazy" decoding="async"></div>
+    <!-- duplicate for seamless loop -->
+    <div class="gallery-cell"><img src="images/gallery-7.webp"  alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-1.webp"  alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-8.webp"  alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-2.webp"  alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-9.webp"  alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-3.webp"  alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-10.webp" alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-4.webp"  alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-11.webp" alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-5.webp"  alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-12.webp" alt="" loading="lazy" decoding="async"></div>
+    <div class="gallery-cell"><img src="images/gallery-6.webp"  alt="" loading="lazy" decoding="async"></div>
+  </div>
+</div>
 
 <!-- ── RECIPES BANNER ── -->
 <div class="pw section" id="rec" style="padding-top:0">
