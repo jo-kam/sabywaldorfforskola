@@ -540,7 +540,7 @@ footer{
     <div class="adm-card fu d1">
       <h3 class="adm-h" data-i18n="about.adm_heading">Så får ditt barn en plats</h3>
       <p class="adm-p" data-i18n="about.adm_p1">Förskolan ingår i den kommunala barnomsorgsplanen och drivs av stiftelsen Säby Waldorfförskola. Verksamheten är öppen för barn mellan 1 och 7 år, och antagning sker via kommunens och förskolans kö.</p>
-      <p class="adm-p">Du kan läsa mer och ansöka om plats via Järfälla kommuns sida för <a href="https://e-tjanster.jarfalla.se/oversikt/overview/742#Ansokomforskoleplats" target="_blank" rel="noopener noreferrer">ansökan till förskola och pedagogisk omsorg</a> →</p>
+      <p class="adm-p" data-i18n="about.adm_p2">Du kan läsa mer och ansöka om plats via Järfälla kommuns sida för <a href="https://e-tjanster.jarfalla.se/oversikt/overview/742#Ansokomforskoleplats" target="_blank" rel="noopener noreferrer">ansökan till förskola och pedagogisk omsorg</a> →</p>
     </div>
   </div>
 </section>
@@ -764,8 +764,8 @@ function getNestedKey(obj, key) {
 async function applyLang(lang) {
   const t = await loadLang(lang);
 
-  // text nodes
-  document.querySelectorAll('[data-i18n]').forEach(el => {
+  // text nodes (skip adm_p2 which is handled specially below)
+  document.querySelectorAll('[data-i18n]:not([data-i18n="about.adm_p2"])').forEach(el => {
     const val = getNestedKey(t, el.dataset.i18n);
     if (val !== undefined) el.textContent = val;
   });
