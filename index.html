@@ -252,7 +252,7 @@ nav.scrolled{border-color:rgba(63,49,18,.12)}
    RECIPES BANNER
 ══════════════════════════════════ */
 .rec-banner{
-  position:relative;border-radius:var(--r);overflow:hidden;
+  position:relative;overflow:hidden;
   min-height:413px;display:flex;flex-direction:column;align-items:center;justify-content:center;
   text-align:center;
 }
@@ -641,21 +641,6 @@ footer{
   </div>
 </div>
 
-<!-- ── RECIPES BANNER ── -->
-<div class="pw section" id="rec" style="padding-top:96px">
-  <div class="rec-banner fu">
-    <img class="rec-bg" src="images/recipes-bg.webp" alt="" loading="lazy" decoding="async">
-    <div class="rec-content">
-        <h2 class="rec-h" data-i18n="recipes.heading">Från köket på Säby</h2>
-        <p class="rec-p" data-i18n="recipes.body">Varje vecka lagar vi mat från grunden, ekologiskt, vegetariskt och med kärlek. Ta hem lite av Säby-känslan till ditt eget kök.</p>
-      <a href="recepthafte.pdf" download class="btn-orange">
-        <span data-i18n="recipes.cta">Ladda ner recepthäftet</span>
-        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9M4 8l4 4 4-4M2 14h12" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-    </div>
-  </div>
-</div>
-
 <!-- ── CONTACT + FIND ── -->
 <div class="pw section" id="kon" style="padding-bottom:120px">
   <div class="cf-grid">
@@ -706,6 +691,19 @@ footer{
 </div>
 
 </main>
+
+<!-- ── RECIPES BANNER ── -->
+<div id="rec" class="rec-banner fu">
+  <img class="rec-bg" src="images/recipes-bg.webp" alt="" loading="lazy" decoding="async">
+  <div class="rec-content">
+      <h2 class="rec-h" data-i18n="recipes.heading">Från köket på Säby</h2>
+      <p class="rec-p" data-i18n="recipes.body">Varje vecka lagar vi mat från grunden, ekologiskt, vegetariskt och med kärlek. Ta hem lite av Säby-känslan till ditt eget kök.</p>
+    <a href="recepthafte.pdf" download class="btn-orange">
+      <span data-i18n="recipes.cta">Ladda ner recepthäftet</span>
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9M4 8l4 4 4-4M2 14h12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</div>
 
 <!-- ── FOOTER ── -->
 <footer>
