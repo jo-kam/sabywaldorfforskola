@@ -176,24 +176,22 @@ nav.scrolled{border-color:rgba(63,49,18,.12)}
 /* ══════════════════════════════════
    GALLERY STRIP
 ══════════════════════════════════ */
-.gallery-strip-wrap{overflow:hidden;padding:64px 0;margin:0 calc(-1 * var(--ph))}
+.gallery-strip-wrap{overflow:hidden;padding:64px 0;margin:0 calc(-1 * var(--ph));cursor:grab}
+.gallery-strip-wrap:active{cursor:grabbing}
 .gallery-strip{
   display:flex;gap:16px;align-items:center;
-  animation:galleryScroll 40s linear infinite;
   width:max-content;
+  will-change:transform;
+  user-select:none;
 }
-.gallery-strip:hover{animation-play-state:paused}
 .gallery-cell{
   width:282px;height:278px;flex-shrink:0;
   overflow:hidden;
   border-radius:30px;
   border:1px solid rgba(0,0,0,.03);
+  pointer-events:none;
 }
 .gallery-cell img{width:100%;height:100%;object-fit:cover;display:block}
-@keyframes galleryScroll{
-  0%{transform:translateX(0)}
-  100%{transform:translateX(-50%)}
-}
 
 /* ══════════════════════════════════
    BOTANICAL DECORATIONS
@@ -642,20 +640,7 @@ footer{
 
 <div class="gallery-strip-wrap" aria-hidden="true">
   <div class="gallery-strip" id="galleryStrip">
-    <!-- original 12 images duplicated for infinite scroll -->
-    <div class="gallery-cell"><img src="images/gallery-7.webp"  alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-1.webp"  alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-8.webp"  alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-2.webp"  alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-9.webp"  alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-3.webp"  alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-10.webp" alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-4.webp"  alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-11.webp" alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-5.webp"  alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-12.webp" alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-6.webp"  alt="" loading="lazy" decoding="async"></div>
-    <!-- duplicate for seamless loop -->
+    <!-- JS clones these for infinite loop -->
     <div class="gallery-cell"><img src="images/gallery-7.webp"  alt="" loading="lazy" decoding="async"></div>
     <div class="gallery-cell"><img src="images/gallery-1.webp"  alt="" loading="lazy" decoding="async"></div>
     <div class="gallery-cell"><img src="images/gallery-8.webp"  alt="" loading="lazy" decoding="async"></div>
@@ -837,6 +822,123 @@ async function setLang(lang) {
 
 // init on load
 applyLang(currentLang);
+/* ---- Infinite gallery carousel ---- */
+(function(){
+  const wrap = document.querySelector('.gallery-strip-wrap');
+  const strip = document.getElementById('galleryStrip');
+  if(!wrap || !strip) return;
+
+  // Clone items for infinite loop
+  const clone = strip.cloneNode(true);
+  clone.setAttribute('aria-hidden', 'true');
+  wrap.appendChild(clone);
+
+  const autoSpeed = 0.6; // px per frame
+  let offset = 0;
+  let dragging = false;
+  let dragStartX = 0;
+  let dragStartOffset = 0;
+  let velocity = 0;
+  let lastX = 0;
+  let lastTime = 0;
+  let userScrolling = false;
+  let resumeTimer = null;
+
+  function getFullWidth() {
+    return strip.scrollWidth + 16; // +gap
+  }
+
+  function applyOffset() {
+    const fw = getFullWidth();
+    // Seamless loop: when we pass the full original width, reset
+    if(offset >= fw) offset -= fw;
+    if(offset < 0) offset += fw;
+    [strip, clone].forEach(el => {
+      el.style.transform = `translateX(${-offset}px)`;
+    });
+  }
+
+  // Auto scroll
+  let rafId;
+  function tick() {
+    if(!userScrolling && !dragging) {
+      velocity += (autoSpeed - velocity) * 0.05; // ease to auto speed
+      offset += velocity;
+    } else if(dragging) {
+      // let drag handle it
+    } else {
+      // decelerating after user releases
+      offset += velocity;
+      velocity *= 0.92;
+      if(Math.abs(velocity) < 0.1) {
+        velocity = 0;
+        userScrolling = false;
+      }
+    }
+    applyOffset();
+    rafId = requestAnimationFrame(tick);
+  }
+  rafId = requestAnimationFrame(tick);
+
+  function resumeAuto() {
+    clearTimeout(resumeTimer);
+    resumeTimer = setTimeout(() => { userScrolling = false; }, 1500);
+  }
+
+  // Mouse drag
+  wrap.addEventListener('mousedown', e => {
+    dragging = true;
+    userScrolling = true;
+    dragStartX = e.clientX;
+    dragStartOffset = offset;
+    velocity = 0;
+    lastX = e.clientX;
+    lastTime = Date.now();
+    clearTimeout(resumeTimer);
+  });
+  window.addEventListener('mousemove', e => {
+    if(!dragging) return;
+    const now = Date.now();
+    const dx = e.clientX - lastX;
+    velocity = -dx / Math.max(1, now - lastTime) * 16;
+    lastX = e.clientX;
+    lastTime = now;
+    offset = dragStartOffset + (dragStartX - e.clientX);
+    applyOffset();
+  });
+  window.addEventListener('mouseup', () => {
+    if(!dragging) return;
+    dragging = false;
+    resumeAuto();
+  });
+
+  // Touch
+  wrap.addEventListener('touchstart', e => {
+    userScrolling = true;
+    dragging = true;
+    dragStartX = e.touches[0].clientX;
+    dragStartOffset = offset;
+    velocity = 0;
+    lastX = e.touches[0].clientX;
+    lastTime = Date.now();
+    clearTimeout(resumeTimer);
+  }, { passive: true });
+  wrap.addEventListener('touchmove', e => {
+    if(!dragging) return;
+    const now = Date.now();
+    const dx = e.touches[0].clientX - lastX;
+    velocity = -dx / Math.max(1, now - lastTime) * 16;
+    lastX = e.touches[0].clientX;
+    lastTime = now;
+    offset = dragStartOffset + (dragStartX - e.touches[0].clientX);
+    applyOffset();
+  }, { passive: true });
+  wrap.addEventListener('touchend', () => {
+    dragging = false;
+    resumeAuto();
+  });
+})();
+
 /* ---- Parallax botanicals ---- */
 (function(){
   const els = document.querySelectorAll('.parallax');
