@@ -176,20 +176,14 @@ nav.scrolled{border-color:rgba(63,49,18,.12)}
 /* ══════════════════════════════════
    GALLERY STRIP
 ══════════════════════════════════ */
-.gallery-strip-wrap{overflow:hidden;padding:64px 0;margin:0 calc(-1 * var(--ph));cursor:grab;display:flex}
+.gallery-strip-wrap{overflow:hidden;padding:64px 0;margin:0 calc(-1 * var(--ph));cursor:grab}
 .gallery-strip-wrap:active{cursor:grabbing}
-.gallery-strip{
-  display:flex;gap:16px;align-items:center;
-  flex-shrink:0;
-  will-change:transform;
-  user-select:none;
-}
+.gallery-inner{display:flex;width:max-content;will-change:transform;user-select:none}
+.gallery-strip{display:flex;gap:16px;align-items:center;flex-shrink:0}
 .gallery-cell{
   width:282px;height:278px;flex-shrink:0;
-  overflow:hidden;
-  border-radius:30px;
-  border:1px solid rgba(0,0,0,.03);
-  pointer-events:none;
+  overflow:hidden;border-radius:30px;
+  border:1px solid rgba(0,0,0,.03);pointer-events:none;
 }
 .gallery-cell img{width:100%;height:100%;object-fit:cover;display:block}
 
@@ -639,20 +633,22 @@ footer{
 </section>
 
 <div class="gallery-strip-wrap" aria-hidden="true">
-  <div class="gallery-strip" id="galleryStrip">
-    <!-- JS clones these for infinite loop -->
-    <div class="gallery-cell"><img src="images/gallery-7.webp"  alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-1.webp"  alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-8.webp"  alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-2.webp"  alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-9.webp"  alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-3.webp"  alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-10.webp" alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-4.webp"  alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-11.webp" alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-5.webp"  alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-12.webp" alt="" loading="lazy" decoding="async"></div>
-    <div class="gallery-cell"><img src="images/gallery-6.webp"  alt="" loading="lazy" decoding="async"></div>
+  <div class="gallery-inner" id="galleryInner">
+    <div class="gallery-strip" id="galleryStrip">
+      <!-- JS clones these for infinite loop -->
+      <div class="gallery-cell"><img src="images/gallery-7.webp"  alt="" loading="lazy" decoding="async"></div>
+      <div class="gallery-cell"><img src="images/gallery-1.webp"  alt="" loading="lazy" decoding="async"></div>
+      <div class="gallery-cell"><img src="images/gallery-8.webp"  alt="" loading="lazy" decoding="async"></div>
+      <div class="gallery-cell"><img src="images/gallery-2.webp"  alt="" loading="lazy" decoding="async"></div>
+      <div class="gallery-cell"><img src="images/gallery-9.webp"  alt="" loading="lazy" decoding="async"></div>
+      <div class="gallery-cell"><img src="images/gallery-3.webp"  alt="" loading="lazy" decoding="async"></div>
+      <div class="gallery-cell"><img src="images/gallery-10.webp" alt="" loading="lazy" decoding="async"></div>
+      <div class="gallery-cell"><img src="images/gallery-4.webp"  alt="" loading="lazy" decoding="async"></div>
+      <div class="gallery-cell"><img src="images/gallery-11.webp" alt="" loading="lazy" decoding="async"></div>
+      <div class="gallery-cell"><img src="images/gallery-5.webp"  alt="" loading="lazy" decoding="async"></div>
+      <div class="gallery-cell"><img src="images/gallery-12.webp" alt="" loading="lazy" decoding="async"></div>
+      <div class="gallery-cell"><img src="images/gallery-6.webp"  alt="" loading="lazy" decoding="async"></div>
+    </div>
   </div>
 </div>
 
@@ -824,99 +820,94 @@ async function setLang(lang) {
 applyLang(currentLang);
 /* ---- Infinite gallery carousel ---- */
 (function(){
-  const wrap = document.querySelector('.gallery-strip-wrap');
+  const wrap  = document.querySelector('.gallery-strip-wrap');
+  const inner = document.getElementById('galleryInner');
   const strip = document.getElementById('galleryStrip');
-  if(!wrap || !strip) return;
+  if(!wrap || !inner || !strip) return;
 
-  // Clone the strip for seamless loop
+  // Clone strip and append inside inner — gives us strip + clone side by side
   const clone = strip.cloneNode(true);
   clone.setAttribute('aria-hidden', 'true');
-  wrap.appendChild(clone);
+  inner.appendChild(clone);
 
-  // Wait for layout to measure strip width
-  requestAnimationFrame(() => {
-    const stripW = strip.offsetWidth + 16; // width of one full set + gap
-    let offset = 0;
-    let velocity = 0;
-    const autoSpeed = 0.6;
-    let dragging = false;
-    let dragStartX = 0;
-    let dragStartOffset = 0;
-    let lastX = 0;
-    let lastTime = 0;
-    let userScrolling = false;
-    let resumeTimer = null;
+  let offset = 0;
+  let velocity = 0;
+  const autoSpeed = 0.6;
+  let dragging = false;
+  let dragStartX = 0;
+  let dragStartOffset = 0;
+  let lastX = 0;
+  let lastTime = 0;
+  let userScrolling = false;
+  let resumeTimer = null;
+  let stripW = 0;
 
-    function applyOffset() {
-      // Seamless loop: jump back by one strip width
-      if(offset >= stripW) offset -= stripW;
-      if(offset < 0) offset += stripW;
-      wrap.style.transform = `translateX(${-offset}px)`;
-    }
+  function measure() {
+    // gap between strips: 16px
+    stripW = strip.offsetWidth + 16;
+  }
+  measure();
+  window.addEventListener('resize', measure);
 
-    // Override wrap layout to allow translateX
-    wrap.style.display = 'flex';
-    wrap.style.willChange = 'transform';
+  function applyOffset() {
+    if(stripW <= 0) return;
+    // Wrap offset within [0, stripW) for seamless loop
+    offset = ((offset % stripW) + stripW) % stripW;
+    inner.style.transform = `translateX(${-offset}px)`;
+  }
 
-    function tick() {
-      if(!dragging) {
-        if(userScrolling) {
-          offset += velocity;
-          velocity *= 0.93;
-          if(Math.abs(velocity) < 0.1) { velocity = 0; userScrolling = false; }
-        } else {
-          offset += autoSpeed;
-        }
+  function tick() {
+    if(!dragging) {
+      if(userScrolling) {
+        offset += velocity;
+        velocity *= 0.93;
+        if(Math.abs(velocity) < 0.1) { velocity = 0; userScrolling = false; }
+      } else {
+        offset += autoSpeed;
       }
-      applyOffset();
-      requestAnimationFrame(tick);
     }
+    applyOffset();
     requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
 
-    function pauseAuto() {
-      userScrolling = true;
-      clearTimeout(resumeTimer);
-    }
-    function resumeAuto() {
-      clearTimeout(resumeTimer);
-      resumeTimer = setTimeout(() => { userScrolling = false; }, 1500);
-    }
+  function pauseAuto() { userScrolling = true; clearTimeout(resumeTimer); }
+  function resumeAuto() {
+    clearTimeout(resumeTimer);
+    resumeTimer = setTimeout(() => { userScrolling = false; }, 1500);
+  }
 
-    // Mouse drag
-    wrap.addEventListener('mousedown', e => {
-      dragging = true; pauseAuto();
-      dragStartX = e.clientX; dragStartOffset = offset; velocity = 0;
-      lastX = e.clientX; lastTime = Date.now();
-    });
-    window.addEventListener('mousemove', e => {
-      if(!dragging) return;
-      const now = Date.now();
-      velocity = -(e.clientX - lastX) / Math.max(1, now - lastTime) * 14;
-      lastX = e.clientX; lastTime = now;
-      offset = dragStartOffset + (dragStartX - e.clientX);
-      applyOffset();
-    });
-    window.addEventListener('mouseup', () => {
-      if(!dragging) return;
-      dragging = false; resumeAuto();
-    });
-
-    // Touch
-    wrap.addEventListener('touchstart', e => {
-      dragging = true; pauseAuto();
-      dragStartX = e.touches[0].clientX; dragStartOffset = offset; velocity = 0;
-      lastX = e.touches[0].clientX; lastTime = Date.now();
-    }, { passive: true });
-    wrap.addEventListener('touchmove', e => {
-      if(!dragging) return;
-      const now = Date.now();
-      velocity = -(e.touches[0].clientX - lastX) / Math.max(1, now - lastTime) * 14;
-      lastX = e.touches[0].clientX; lastTime = now;
-      offset = dragStartOffset + (dragStartX - e.touches[0].clientX);
-      applyOffset();
-    }, { passive: true });
-    wrap.addEventListener('touchend', () => { dragging = false; resumeAuto(); });
+  // Mouse
+  wrap.addEventListener('mousedown', e => {
+    dragging = true; pauseAuto();
+    dragStartX = e.clientX; dragStartOffset = offset; velocity = 0;
+    lastX = e.clientX; lastTime = Date.now();
   });
+  window.addEventListener('mousemove', e => {
+    if(!dragging) return;
+    const now = Date.now();
+    velocity = -(e.clientX - lastX) / Math.max(1, now - lastTime) * 14;
+    lastX = e.clientX; lastTime = now;
+    offset = dragStartOffset + (dragStartX - e.clientX);
+    applyOffset();
+  });
+  window.addEventListener('mouseup', () => { if(dragging){ dragging = false; resumeAuto(); } });
+
+  // Touch
+  wrap.addEventListener('touchstart', e => {
+    dragging = true; pauseAuto();
+    dragStartX = e.touches[0].clientX; dragStartOffset = offset; velocity = 0;
+    lastX = e.touches[0].clientX; lastTime = Date.now();
+  }, { passive: true });
+  wrap.addEventListener('touchmove', e => {
+    if(!dragging) return;
+    const now = Date.now();
+    velocity = -(e.touches[0].clientX - lastX) / Math.max(1, now - lastTime) * 14;
+    lastX = e.touches[0].clientX; lastTime = now;
+    offset = dragStartOffset + (dragStartX - e.touches[0].clientX);
+    applyOffset();
+  }, { passive: true });
+  wrap.addEventListener('touchend', () => { if(dragging){ dragging = false; resumeAuto(); } });
 })();
 
 /* ---- Parallax botanicals ---- */
