@@ -299,27 +299,9 @@ nav.scrolled{border-color:rgba(63,49,18,.12)}
 /* top image / map area — flex-grows so both cards match height */
 .info-card-media{
   width:100%;flex:1;min-height:260px;
-  position:relative;overflow:hidden;
+  position:relative;
 }
-/* Contact card — image bleeds over entire card */
-.info-card--contact{position:relative;overflow:visible}
-.info-card--contact .info-card-media{
-  position:absolute;inset:0;
-  min-height:unset;flex:unset;
-  overflow:visible;
-  z-index:0;
-  pointer-events:none;
-}
-.info-card--contact .info-card-media img{
-  position:absolute;inset:0;width:100%;height:100%;
-  object-fit:cover;object-position:center top;
-  mix-blend-mode:multiply;
-  border-radius:var(--r);
-}
-.info-card--contact .info-card-body{
-  position:relative;z-index:1;
-  margin-top:auto;
-}
+
 .map-warm-overlay{display:none}
 .info-card-media img{
   position:absolute;inset:0;width:100%;height:100%;
@@ -676,7 +658,7 @@ footer{
   <div class="cf-grid">
 
     <!-- Contact card -->
-    <div class="info-card info-card--bordered info-card--contact fu">
+    <div class="info-card info-card--bordered fu">
       <div class="info-card-media">
         <img src="images/contact-door.webp" alt="Ingången till Säby gård" loading="lazy" decoding="async">
       </div>
