@@ -301,6 +301,10 @@ nav.scrolled{border-color:rgba(63,49,18,.12)}
   width:100%;flex:1;min-height:260px;
   position:relative;
 }
+/* map card needs clipping */
+#find .info-card-media{
+  overflow:hidden;
+}
 
 .map-warm-overlay{display:none}
 .info-card-media img{
@@ -325,7 +329,7 @@ nav.scrolled{border-color:rgba(63,49,18,.12)}
 .cf-btns{display:flex;flex-direction:column;gap:12px}
 .cf-btn{
   display:flex;align-items:center;gap:14px;
-  background:#fff;border-radius:14px;
+  background:var(--sand);border-radius:14px;
   padding:14px 20px;font-family:var(--fb);font-size:16px;font-weight:500;
   color:var(--br);transition:background .2s;text-decoration:none;
 }
